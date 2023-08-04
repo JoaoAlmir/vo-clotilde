@@ -1,0 +1,8 @@
+#cursor{
+    z-index: 6;
+    width: 2.5vh;
+    pointer-events: none;
+    transform: translate3d(0,0,0);
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0);
+}

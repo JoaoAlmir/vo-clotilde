@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 function Header() {
     
 
@@ -8,7 +10,7 @@ function Header() {
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>BEBIDAS</h5>
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>BOLOS & TORTAS</h5>
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>CARNES VERMELHAS</h5>
-                <a href="/"><img width="120px" height="120px" src="src/assets/headerIcon.png" alt="icon" /></a>
+                <NavLink end to="/"><img width="120px" height="120px" src="src/assets/headerIcon.png" alt="icon" /></NavLink>
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>DOCES & SOBEMESAS</h5>
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>MASSAS</h5>
                 <h5 className="text-light p-5 border-bottom border-danger-subtle rounded-5"style={{backgroundColor:"#ff000026"}}>PEIXES & FRUTOS DO MAR</h5>

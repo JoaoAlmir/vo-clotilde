@@ -1,5 +1,7 @@
 import Header from "../../components/Header"
 import "./Home.css"
+import { NavLink } from "react-router-dom";
+
 function Home() {
 
     return (
@@ -14,7 +16,7 @@ function Home() {
             </div>
 
             <div className="d-flex justify-content-center mb-5">
-                <a href="/detail" className="border-bottom border-5 rounded-5 shadow-lg border-danger-subtle me-5 label" style={{ width: "380px", height: "700px" }}>
+                <NavLink end to="/detail" className="border-bottom border-5 rounded-5 shadow-lg border-danger-subtle me-5 label" style={{ width: "380px", height: "700px" }}>
                     <img width="380px" height="250px" src="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" alt="icon" />
                     <h3 className="p-5 text-danger">Donuts tradicional: aprenda a fazer versão sem cobertura   </h3>
                     <span className="d-flex flex-column ">
@@ -26,14 +28,14 @@ function Home() {
                             <i style={{ color: "red", fontSize: "2em" }} className="bi bi-fullscreen-exit p-5"></i>
                             <p className="d-inline text-danger">10 Porções</p>
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-4">  
                             <i style={{ color: "red", fontSize: "2em" }} className="bi bi-suit-diamond p-5"></i>
                             <p className="d-inline text-danger">Facil</p>
                         </div>
                     </span>
 
 
-                </a>
+                </NavLink>
 
                 <div className="d-flex flex-column">
                     <div className="d-flex">
