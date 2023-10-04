@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.post("/itens", controller.inserirItem);
     
     //alterar item
-    app.put("/itens/:id", controller.inserirItem);
+    app.put("/itens/:id", controller.atualizarItem);
 
     //deletar item pelo id
     app.delete("/itens/:id", controller.removerItem);
