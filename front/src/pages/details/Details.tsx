@@ -33,7 +33,7 @@ function Details() {
 
             <div className="my-5 w-50 mx-auto fs-5">
                 Os donuts são um doce bem popular nos Estados Unidos. A famosa rosquinha com uma cobertura colorida aparece em filmes, séries e até desenhos animados. Apesar de sua origem incerta, esse snack ganhou destaque nas padarias, confeitarias e lanchonetes do Brasil. Mas você conhece a versão tradicional?
-
+                
                 Salpicada com canela e açúcar, o donuts tradicional pode te lembrar bastante uma receita de bolinho de chuva. Além disso, essa é a opção perfeita para quem gosta de inovar nas coberturas. Assim você pode testar as mais saborosas e de sua preferência! Curtiu a ideia?
 
                 Aprenda a fazer o donuts tradicional em casa e para surpreender as visitas e os familiares quando quiser!
