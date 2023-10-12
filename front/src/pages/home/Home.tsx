@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchItens } from "../../api/item";
 import Header from "../../components/Header"
 import { ItemCard } from "../../components/item/ItemCard";
@@ -9,6 +9,8 @@ import { SearchBar } from "../../components/searchBar/SearchBar";
 function Home() {
     const [itens, setItens] = useState([]);
 
+
+    useEffect(() => {
     fetchItens().then((res) => {
         console.log(res.data)
         setItens(res.data)
@@ -16,6 +18,7 @@ function Home() {
     ).catch((err) => {
         console.log(err)
     })
+    }   , [])
 
 
     return (
@@ -58,6 +61,18 @@ function Home() {
 
             </div>
 
+
+            <h4>Companhias de produção</h4>
+                    {
+                        itens?.map((i) => (
+                            <span key={i._id}>
+                                {i!= undefined &&
+                                    <h1>{i.titulo}</h1>
+                                }
+
+                            </span>
+                        ))
+                    }
         </>
     )
 }
