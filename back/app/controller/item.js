@@ -40,6 +40,8 @@ module.exports.inserirItem = async function (req, res) {
             introducao: req.body.introducao,
             ingredientes: req.body.ingredientes,
             preparo: req.body.preparo,
+            categoria: req.body.categoria,
+            imagem: req.body.imagem,
             dataCriacao: dataAtual
         };
 
@@ -60,7 +62,7 @@ module.exports.atualizarItem = async function (req, res) {
             return res.status(404).json({ message: 'Item não encontrado' });
         }
 
-        const { titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo } = req.body;
+        const { titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem } = req.body;
 
         if (titulo) itemExistente.titulo = titulo;
         if (tempoPreparo) itemExistente.tempoPreparo = tempoPreparo;
@@ -69,6 +71,8 @@ module.exports.atualizarItem = async function (req, res) {
         if (introducao) itemExistente.introducao = introducao;
         if (ingredientes) itemExistente.ingredientes = ingredientes;
         if (preparo) itemExistente.preparo = preparo;
+        if (categoria) itemExistente.categoria = categoria;
+        if (imagem) itemExistente.imagem = imagem;
 
         const itemAtualizado = await itemExistente.save();
 

@@ -68,16 +68,16 @@ function Home() {
                     <span key={i._id}>
                         {i != undefined &&
                             <div className="d-flex justify-content-center mb-5">
-                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" />
+                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
 
                                 <div className="d-flex flex-column">
                                     <div className="d-flex">
-                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" />
-                                        {/* <ItemCard titulo="Panqueca fit de banana, aveia e mel para o café da manhã " imagem="https://guiadacozinha.com.br/wp-content/uploads/2022/07/Cuscuz-branco-350x230.jpg" /> */}
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
                                     </div>
                                     <div className="d-flex">
-                                        {/* <ItemCard titulo="Taco de tapioca: experimente essa versão diferente e acessível" imagem="https://guiadacozinha.com.br/wp-content/uploads/2004/01/taco-de-tapioca-350x230.jpg" /> */}
-                                        {/* <ItemCard titulo="Broa de fubá simples, fácil e com gosto de casa da vovó" imagem="https://guiadacozinha.com.br/wp-content/uploads/2011/01/broa-de-fuba-simples-350x230.jpg" /> */}
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
                                     </div>
                                 </div>
                             </div>

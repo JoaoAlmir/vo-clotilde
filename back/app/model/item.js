@@ -29,6 +29,15 @@ module.exports = function () {
             type: String,
             required: true
         },
+        categoria:
+        {
+            type: String,
+            required: true
+        },
+        imagem:{
+            type: String,
+            required: true
+        },
         dataCriacao:{
             type: String,
             required: true
