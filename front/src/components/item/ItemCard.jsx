@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export function ItemCard({detalhado,titulo, tempo, porcoes, dificuldade, imagem}: any) {
+export function ItemCard({detalhado,titulo, tempo, porcoes, dificuldade, imagem}) {
 
     return (
         (detalhado) ? (

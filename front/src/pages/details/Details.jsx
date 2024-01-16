@@ -6,7 +6,7 @@ function Details() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <div className="top-50 mb-2 home-search" style={{ backgroundImage: `url(https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-768x619.jpg)`,pointerEvents:'none' ,height: '500px', backgroundSize: 'cover' }}>
                 <div className="input-group input-group-lg top-50 w-50 mx-auto">
                     <input type="text" className="form-control " placeholder="Pesquisar Receita" aria-label="Pesquisar Receita" aria-describedby="button-addon2" />

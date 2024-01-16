@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchItens } from "../../api/item";
-import Header from "../../components/header/Header"
-import { ItemCard } from "../../components/item/ItemCard";
 import "./Home.css"
+import Header from "../../components/header/Header";
 import { SearchBar } from "../../components/searchBar/SearchBar";
+import { ItemCard } from "../../components/item/ItemCard";
 
 
 function Home() {
@@ -67,7 +67,7 @@ function Home() {
                         itens?.map((i) => (
                             <span key={i}>
                                 {i!= undefined &&
-                                    <h1>{i.titulo}</h1>
+                                    <h1 className="bg-danger">{i.titulo}</h1>
                                 }
 
                             </span>

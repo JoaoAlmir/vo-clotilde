@@ -5,16 +5,16 @@ import img from "./redmouse.png"
 
 export function CustomMouse() {
     
-    const cursorRef:any = React.useRef(null)
+    const cursorRef = React.useRef(null)
 
-    function renderMouse(event:any) {
+    function renderMouse(event) {
         const { clientX, clientY } = event;        
         const mouseX = clientX - 6
         const mouseY = clientY - 2
         cursorRef.current.style.transform = "translate3d(" + mouseX + "px, " + mouseY + "px,0)"
     }
 
-    function HideMouse(event:any) {
+    function HideMouse(event) {
         const { clientX, clientY } = event;
         const mouseX = clientX - 999
         const mouseY = clientY - 999
