@@ -6,8 +6,8 @@ function Details() {
 
     return (
         <>
-            <Header/>
-            <div className="top-50 mb-2 home-search" style={{ backgroundImage: `url(https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-768x619.jpg)`,pointerEvents:'none' ,height: '500px', backgroundSize: 'cover' }}>
+            <Header />
+            <div className="top-50 mb-2 home-search" style={{ backgroundImage: `url(https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-768x619.jpg)`, pointerEvents: 'none', height: '500px', backgroundSize: 'cover' }}>
                 <div className="input-group input-group-lg top-50 w-50 mx-auto">
                     <input type="text" className="form-control " placeholder="Pesquisar Receita" aria-label="Pesquisar Receita" aria-describedby="button-addon2" />
                     <button className="btn d-inline" type="button" id="search"> <i className="bi bi-search-heart-fill"></i> </button>
@@ -33,7 +33,7 @@ function Details() {
 
             <div className="my-5 w-50 mx-auto fs-5">
                 Os donuts são um doce bem popular nos Estados Unidos. A famosa rosquinha com uma cobertura colorida aparece em filmes, séries e até desenhos animados. Apesar de sua origem incerta, esse snack ganhou destaque nas padarias, confeitarias e lanchonetes do Brasil. Mas você conhece a versão tradicional?
-                
+
                 Salpicada com canela e açúcar, o donuts tradicional pode te lembrar bastante uma receita de bolinho de chuva. Além disso, essa é a opção perfeita para quem gosta de inovar nas coberturas. Assim você pode testar as mais saborosas e de sua preferência! Curtiu a ideia?
 
                 Aprenda a fazer o donuts tradicional em casa e para surpreender as visitas e os familiares quando quiser!

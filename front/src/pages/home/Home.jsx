@@ -11,14 +11,14 @@ function Home() {
 
 
     useEffect(() => {
-    fetchItens().then((res) => {
-        console.log(res.data)
-        setItens(res.data)
-    }
-    ).catch((err) => {
-        console.log(err)
-    })
-    }   , [])
+        fetchItens().then((res) => {
+            console.log(res.data)
+            setItens(res.data)
+        }
+        ).catch((err) => {
+            console.log(err)
+        })
+    }, [])
 
 
     return (
@@ -45,7 +45,7 @@ function Home() {
             <div className="bg-danger bg-gradient text-center fs-2 text-light opacity-75 mb-5"> Dicas </div>
 
             <div className="d-flex justify-content-center mb-5">
-            <ItemCard detalhado titulo="Antes de ir as compras saiba o que vai estar mais barato em agosto para que você possa garantir os melhores alimentos." imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/alimentos-baratos-em-agosto-540x350.jpg" />
+                <ItemCard detalhado titulo="Antes de ir as compras saiba o que vai estar mais barato em agosto para que você possa garantir os melhores alimentos." imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/alimentos-baratos-em-agosto-540x350.jpg" />
 
                 <div className="d-flex flex-column">
                     <div className="d-flex">
@@ -62,17 +62,30 @@ function Home() {
             </div>
 
 
-            <h4>Companhias de produção</h4>
-                    {
-                        itens?.map((i) => (
-                            <span key={i}>
-                                {i!= undefined &&
-                                    <h1 className="bg-danger">{i.titulo}</h1>
-                                }
+            <h4>Teste</h4>
+            {
+                itens?.map((i) => (
+                    <span key={i._id}>
+                        {i != undefined &&
+                            <div className="d-flex justify-content-center mb-5">
+                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" />
 
-                            </span>
-                        ))
-                    }
+                                <div className="d-flex flex-column">
+                                    <div className="d-flex">
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" />
+                                        {/* <ItemCard titulo="Panqueca fit de banana, aveia e mel para o café da manhã " imagem="https://guiadacozinha.com.br/wp-content/uploads/2022/07/Cuscuz-branco-350x230.jpg" /> */}
+                                    </div>
+                                    <div className="d-flex">
+                                        {/* <ItemCard titulo="Taco de tapioca: experimente essa versão diferente e acessível" imagem="https://guiadacozinha.com.br/wp-content/uploads/2004/01/taco-de-tapioca-350x230.jpg" /> */}
+                                        {/* <ItemCard titulo="Broa de fubá simples, fácil e com gosto de casa da vovó" imagem="https://guiadacozinha.com.br/wp-content/uploads/2011/01/broa-de-fuba-simples-350x230.jpg" /> */}
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </span>
+                ))
+            }
         </>
     )
 }
