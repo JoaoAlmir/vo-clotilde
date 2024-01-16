@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchItens } from "../../api/item";
-import Header from "../../components/Header"
+import Header from "../../components/header/Header"
 import { ItemCard } from "../../components/item/ItemCard";
 import "./Home.css"
 import { SearchBar } from "../../components/searchBar/SearchBar";
@@ -65,7 +65,7 @@ function Home() {
             <h4>Companhias de produção</h4>
                     {
                         itens?.map((i) => (
-                            <span key={i._id}>
+                            <span key={i}>
                                 {i!= undefined &&
                                     <h1>{i.titulo}</h1>
                                 }
