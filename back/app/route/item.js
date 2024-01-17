@@ -7,6 +7,9 @@ module.exports = function (app) {
     //obter a item pelo id
     app.get("/itens/:id", controller.obterItem);
 
+    //obter a item pela categoria
+    app.get("/itens/categoria/:categoria", controller.obterItemCategoria);
+
     //criar novo item
     app.post("/itens", controller.inserirItem);
     

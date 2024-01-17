@@ -10,6 +10,24 @@ module.exports.obterItens = async function (req, res) {
     }
 }
 
+module.exports.obterItemCategoria = async function (req, res) {
+    try {
+        const categoria = req.params.categoria;
+        const itens = await Item.find({ categoria: categoria }).exec();
+        
+        if (!itens) {
+            res.status(404).json({ message: 'Item não encontrado' });
+            return;
+        }
+    
+        res.status(200).json(itens);
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+}
+
 module.exports.obterItem = async function (req, res) {
     try {
         const id = req.params.id;
