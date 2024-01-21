@@ -1,4 +1,5 @@
 import Header from "../../components/header/Header"
+import { SearchBar } from "../../components/searchBar/SearchBar"
 import "./Details.css"
 
 function Details() {
@@ -7,12 +8,7 @@ function Details() {
     return (
         <>
             <Header />
-            <div className="top-50 mb-2 home-search" style={{ backgroundImage: `url(https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-768x619.jpg)`, pointerEvents: 'none', height: '500px', backgroundSize: 'cover' }}>
-                <div className="input-group input-group-lg top-50 w-50 mx-auto">
-                    <input type="text" className="form-control " placeholder="Pesquisar Receita" aria-label="Pesquisar Receita" aria-describedby="button-addon2" />
-                    <button className="btn d-inline" type="button" id="search"> <i className="bi bi-search-heart-fill"></i> </button>
-                </div>
-            </div>
+            <SearchBar />
 
             <h1 className="text-danger text-center">Donuts tradicional: aprenda a fazer versão sem cobertura</h1>
 

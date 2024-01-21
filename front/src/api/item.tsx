@@ -22,3 +22,13 @@ export function fetchItens(){
         // }
     })
 }
+
+export function fetchCategory(category){
+    return axios({
+        method: "GET",
+        url: url_base+"/itens/categoria/"+category,
+        // headers:{
+        //     token: token
+        // }
+    })
+}

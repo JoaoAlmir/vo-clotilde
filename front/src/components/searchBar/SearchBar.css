@@ -1,0 +1,11 @@
+.search-button {
+    background-color: rgb(252, 115, 115);
+    color: black;
+    color : "pink";
+}
+
+.search-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
+}
