@@ -68,7 +68,7 @@ function Home() {
                     <span key={i._id}>
                         {i != undefined &&
                             <div className="d-flex justify-content-center mb-5">
-                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
+                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
 
                                 <div className="d-flex flex-column">
                                     <div className="d-flex">

@@ -16,12 +16,12 @@ function Category() {
         }
         ).catch((err) => {
             console.log(err)
-        })  
-    }, [])  
+        })
+    }, [])
 
     return (
         <>
-            <Header/>
+            <Header />
 
             {
                 itens?.map((i) => (
@@ -30,7 +30,7 @@ function Category() {
                             <div className="d-flex mb-5">
                                 <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
 
-                                
+
                             </div>
                         }
 

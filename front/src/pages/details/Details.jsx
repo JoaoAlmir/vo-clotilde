@@ -1,9 +1,25 @@
+import { useEffect, useState } from "react";
 import Header from "../../components/header/Header"
 import { SearchBar } from "../../components/searchBar/SearchBar"
 import "./Details.css"
+import { useParams } from "react-router-dom";
+import { fetchItem } from "../../api/item";
 
 function Details() {
 
+    const [item, setItem] = useState([]);
+
+    let id = useParams().id;
+
+    useEffect(() => {
+        fetchItem(id).then((res) => {
+            console.log(res.data)
+            setItem(res.data)
+        }
+        ).catch((err) => {
+            console.log(err)
+        })
+    }, [])
 
     return (
         <>

@@ -23,6 +23,16 @@ export function fetchItens(){
     })
 }
 
+export function fetchItem(id){
+    return axios({
+        method: "GET",
+        url: url_base+"/itens/"+ id,
+        // headers:{
+        //     token: token
+        // }
+    })
+}
+
 export function fetchCategory(category){
     return axios({
         method: "GET",

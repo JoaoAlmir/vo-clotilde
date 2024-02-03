@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-export function ItemCard({detalhado,titulo, tempo, porcoes, dificuldade, imagem}) {
+export function ItemCard({detalhado,titulo, tempo, porcoes, dificuldade, imagem, link}) {
 
     return (
         (detalhado) ? (
-            <NavLink end to="/detalhes" className="border-bottom border-5 rounded-5 shadow-lg border-danger-subtle me-5 label" style={{ width: "380px", height: "700px" }}>
+            <NavLink end to={"/detalhes/"+link} className="border-bottom border-5 rounded-5 shadow-lg border-danger-subtle me-5 label" style={{ width: "380px", height: "700px" }}>
                 <img width="380px" height="250px" src={imagem} alt="icon" />
                 <h3 className="p-5 text-danger">  {titulo} </h3>
                 {dificuldade && <span className="d-flex flex-column ">

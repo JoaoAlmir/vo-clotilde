@@ -16,7 +16,7 @@ function App() {
         <CustomMouse /> 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detalhes" element={<Details />} />
+          <Route path="/detalhes/:id" element={<Details />} />
           <Route path="/categorias/:categoria" element={<Category />} />
 
 
