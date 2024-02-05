@@ -11,47 +11,60 @@ function Details() {
 
     let id = useParams().id;
 
+
     useEffect(() => {
         fetchItem(id).then((res) => {
             console.log(res.data)
             setItem(res.data)
+            let ig = res.data.ingredientes.split(",")
+            
+            let ingredientes = ig.map((item, index) => {
+                return <li key={index}>{item}</li>
+            })
+            setItem({ ...res.data, ingredientes: ingredientes })
+            console.log(item.ingredientes)
+
         }
         ).catch((err) => {
             console.log(err)
         })
     }, [])
 
+
+
+
     return (
         <>
             <Header />
-            <SearchBar />
 
-            <h1 className="text-danger text-center">Donuts tradicional: aprenda a fazer versão sem cobertura</h1>
 
-            <div className="d-flex justify-content-center shadow">
+            <h1 className=" text-danger text-center titulo mt-3">{item.titulo}</h1>
+
+            <img src={item.imagem} alt="imagem" className="w-25 mx-auto d-block rounded-pill" />
+
+            <div className="d-flex justify-content-center shadow mt-3">
                 <div>
                     <i style={{ color: "red", fontSize: "2em" }} className="bi bi-alarm p-5"></i>
-                    <p className="d-inline text-danger">1h (+1h20 de descanso)</p>
+                    <p className="d-inline text-danger">{item.tempoPreparo}</p>
                 </div>
                 <div>
                     <i style={{ color: "red", fontSize: "2em" }} className="bi bi-fullscreen-exit p-5"></i>
-                    <p className="d-inline text-danger">10 Porções</p>
+                    <p className="d-inline text-danger">{item.rendimento}</p>
                 </div>
                 <div>
                     <i style={{ color: "red", fontSize: "2em" }} className="bi bi-suit-diamond p-5"></i>
-                    <p className="d-inline text-danger">Facil</p>
+                    <p className="d-inline text-danger">{item.dificuldade}</p>
                 </div>
             </div>
 
             <div className="my-5 w-50 mx-auto fs-5">
-                Os donuts são um doce bem popular nos Estados Unidos. A famosa rosquinha com uma cobertura colorida aparece em filmes, séries e até desenhos animados. Apesar de sua origem incerta, esse snack ganhou destaque nas padarias, confeitarias e lanchonetes do Brasil. Mas você conhece a versão tradicional?
-
-                Salpicada com canela e açúcar, o donuts tradicional pode te lembrar bastante uma receita de bolinho de chuva. Além disso, essa é a opção perfeita para quem gosta de inovar nas coberturas. Assim você pode testar as mais saborosas e de sua preferência! Curtiu a ideia?
-
-                Aprenda a fazer o donuts tradicional em casa e para surpreender as visitas e os familiares quando quiser!
+                <h2 className="text-danger">Ingredientes</h2>
+                <ul>
+                    {item.ingrediente}
+                </ul>
             </div>
 
-            <div className="w-50 mx-auto">
+            {/* <div className="w-50 mx-auto">
 
                 <h2 className="text-danger">Ingredientes</h2>
 
@@ -69,7 +82,7 @@ function Details() {
                     <li>1/2 xícara (chá) de açúcar</li>
                     <li>2 colheres (chá) de canela em pó</li>
                 </ul>
-            </div>
+            </div> */}
 
 
             <div className="w-50 mx-auto">

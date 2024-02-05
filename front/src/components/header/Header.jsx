@@ -4,7 +4,7 @@ import "./Header.css"
 function Header() {
     return (
         <>
-            <header className="d-flex justify-content-evenly position-fixed d-block shadow">
+            <header className="d-flex justify-content-evenly position-sticky d-block shadow">
                 <NavLink end to="/">
                     <img width="80px" height="80px" src="../src/assets/headerIcon.png" alt="icon" />
                 </NavLink>

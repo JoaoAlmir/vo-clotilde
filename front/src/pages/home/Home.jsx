@@ -42,34 +42,16 @@ function Home() {
                 </div>
             </div>
 
-            <div className="bg-danger bg-gradient text-center fs-2 text-light opacity-75 mb-5"> Dicas </div>
-
-            <div className="d-flex justify-content-center mb-5">
-                <ItemCard detalhado titulo="Antes de ir as compras saiba o que vai estar mais barato em agosto para que você possa garantir os melhores alimentos." imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/alimentos-baratos-em-agosto-540x350.jpg" />
-
-                <div className="d-flex flex-column">
-                    <div className="d-flex">
-                        <ItemCard titulo="7 ideias de receitas com doce de leite para te inspirar na cozinha" imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/Cheesecake-de-doce-de-leite-350x230.jpg" />
-                        <ItemCard titulo="Sobrou massa de lasanha? Confira 3 receitas para aproveitar!" imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/canelone-frango-e-bacon-350x230.jpg" />
-                    </div>
-                    <div className="d-flex">
-                        <ItemCard titulo="Laranja é tudo igual? Saiba as diferenças entre as mais populares" imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/07/Diferentes-tipos-de-laranja-em-supermercado-350x230.jpg" />
-                        <ItemCard titulo="8 receitas simples para aproveitar alimentos em promoção" imagem="https://guiadacozinha.com.br/wp-content/uploads/2023/01/couve-flor-de-frigideira-350x230.jpg" />
-
-                    </div>
-                </div>
-
-            </div>
 
 
-            <h4>Teste</h4>
+            <h4>....</h4>
             {
-                itens?.map((i) => (
-                    <span key={i._id}>
+                itens?.map((i,index) => (
+                    <span key={index}>
                         {i != undefined &&
                             <div className="d-flex justify-content-center mb-5">
                                 <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
-
+                                <h1>{}</h1>
                                 <div className="d-flex flex-column">
                                     <div className="d-flex">
                                         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
