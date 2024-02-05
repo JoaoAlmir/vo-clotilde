@@ -21,8 +21,7 @@ function Details() {
             let ingredientes = ig.map((item, index) => {
                 return <li key={index}>{item}</li>
             })
-            setItem({ ...res.data, ingredientes: ingredientes })
-            console.log(item.ingredientes)
+            console.log(ingredientes)
 
         }
         ).catch((err) => {
@@ -64,7 +63,7 @@ function Details() {
                 </ul>
             </div>
 
-            {/* <div className="w-50 mx-auto">
+            <div className="w-50 mx-auto">
 
                 <h2 className="text-danger">Ingredientes</h2>
 
@@ -82,7 +81,7 @@ function Details() {
                     <li>1/2 xícara (chá) de açúcar</li>
                     <li>2 colheres (chá) de canela em pó</li>
                 </ul>
-            </div> */}
+            </div>
 
 
             <div className="w-50 mx-auto">

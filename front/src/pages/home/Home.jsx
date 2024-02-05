@@ -5,15 +5,41 @@ import Header from "../../components/header/Header";
 import { SearchBar } from "../../components/searchBar/SearchBar";
 import { ItemCard } from "../../components/item/ItemCard";
 
+// let a = {
+
+//     main: <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
+//     others: [
+//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
+//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
+//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
+//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
+//     ]
+// }
 
 function Home() {
     const [itens, setItens] = useState([]);
 
+    const adjustList = (myList) => {
+        const res = []
 
+        for (let index = 0; index < myList.length; index++) {
+            const element = myList[index];
+            if (index % 5 == 0) {
+                res.push({
+                    main: element,
+                    others: myList.slice(index + 1, index + 5)
+                })
+            }
+        }
+        return res;
+    }
     useEffect(() => {
         fetchItens().then((res) => {
-            console.log(res.data)
-            setItens(res.data)
+            console.log('data', res.data)
+            const dataAdjust = adjustList(res.data)
+            console.log(dataAdjust)
+            setItens(dataAdjust)
+            console.log('itens', itens)
         }
         ).catch((err) => {
             console.log(err)
@@ -24,50 +50,36 @@ function Home() {
     return (
         <>
             <Header />
-
             <SearchBar />
 
-            <div className="d-flex justify-content-center mb-5">
-                <ItemCard detalhado titulo="Donuts tradicional: aprenda a fazer versão sem cobertura" tempo="1h (+1h20 de descanso)" porcoes="10 Porções" dificuldade="Facil" imagem="https://guiadacozinha.com.br/wp-content/uploads/2020/10/donuts-simples-350x230.jpg" />
 
-                <div className="d-flex flex-column">
-                    <div className="d-flex">
-                        <ItemCard titulo="Cuscuz branco: faça o delicioso cuscuz de tapioca com calda" imagem="https://guiadacozinha.com.br/wp-content/uploads/2019/10/panqueca-banana-aveia-e-mel-350x230.jpg" />
-                        <ItemCard titulo="Panqueca fit de banana, aveia e mel para o café da manhã " imagem="https://guiadacozinha.com.br/wp-content/uploads/2022/07/Cuscuz-branco-350x230.jpg" />
-                    </div>
-                    <div className="d-flex">
-                        <ItemCard titulo="Taco de tapioca: experimente essa versão diferente e acessível" imagem="https://guiadacozinha.com.br/wp-content/uploads/2004/01/taco-de-tapioca-350x230.jpg" />
-                        <ItemCard titulo="Broa de fubá simples, fácil e com gosto de casa da vovó" imagem="https://guiadacozinha.com.br/wp-content/uploads/2011/01/broa-de-fuba-simples-350x230.jpg" />
-                    </div>
-                </div>
-            </div>
-
-
-
-            <h4>....</h4>
             {
-                itens?.map((i,index) => (
-                    <span key={index}>
-                        {i != undefined &&
-                            <div className="d-flex justify-content-center mb-5">
-                                <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
-                                <h1>{}</h1>
-                                <div className="d-flex flex-column">
-                                    <div className="d-flex">
-                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
-                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
-                                    </div>
-                                    <div className="d-flex">
-                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
-                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
-                                    </div>
-                                </div>
-                            </div>
-                        }
+                itens?.map((item, index) =>
+                    <div className="d-flex justify-content-center mb-5">
+                        <ItemCard  className="" detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
+                        <div className="d-flex flex-column ">
+                            <div className="row">
+                                {item.others.map((otherItem, _index) => {
 
-                    </span>
-                ))
+                                    return (<><ItemCard
+                                        titulo={otherItem.titulo}
+                                        tempo={otherItem.tempoPreparo}
+                                        porcoes={otherItem.rendimento}
+                                        dificuldade={otherItem.dificuldade}
+                                        imagem={otherItem.imagem}
+                                        link={otherItem._id} />
+                                        {_index > 0 && _index % 2 == 1 && <div className="w-100"></div>}
+
+                                    </>)
+                                }
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )
             }
+
+
         </>
     )
 }
