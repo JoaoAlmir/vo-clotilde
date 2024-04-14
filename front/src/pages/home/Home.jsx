@@ -48,27 +48,30 @@ function Home() {
                     itens?.map((item, index) =>
                         <div className="d-flex mb-5">
                             <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
-                            <div className="d-flex">
+
+                                
                                 {item.others.map((otherItem, _index) => {
 
-                                    return (<>
-                                        <ItemCard
+                                    return (<div className="row">
+                                        <ItemCard className="col" detalhado={false}
                                             titulo={otherItem.titulo}
                                             tempo={otherItem.tempoPreparo}
                                             porcoes={otherItem.rendimento}
                                             dificuldade={otherItem.dificuldade}
                                             imagem={otherItem.imagem}
                                             link={otherItem._id} />
-                                        {_index > 0 && _index % 2 == 1 &&}
+                                        {_index > 0 && _index % 2 == 1 && <div className="row">AAA</div>}
 
-                                    </>)
+                                    </div>)
                                 }
                                 )}
-                            </div >
                         </div>
 
                     )
                 }
+
+            
+                
 
                 
             </div>
