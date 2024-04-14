@@ -5,16 +5,7 @@ import Header from "../../components/header/Header";
 import { SearchBar } from "../../components/searchBar/SearchBar";
 import { ItemCard } from "../../components/item/ItemCard";
 
-// let a = {
 
-//     main: <ItemCard detalhado titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
-//     others: [
-//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
-//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
-//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />,
-//         <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
-//     ]
-// }
 
 function Home() {
     const [itens, setItens] = useState([]);
@@ -52,32 +43,36 @@ function Home() {
             <Header />
             <SearchBar />
 
-
-            {
-                itens?.map((item, index) =>
-                    <div className="d-flex justify-content-center mb-5">
-                        <ItemCard  className="" detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
-                        <div className="d-flex flex-column ">
-                            <div className="row">
+            <div className="w-75 mx-auto">
+                {
+                    itens?.map((item, index) =>
+                        <div className="d-flex mb-5">
+                            <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
+                            <div className="d-flex">
                                 {item.others.map((otherItem, _index) => {
 
-                                    return (<><ItemCard
-                                        titulo={otherItem.titulo}
-                                        tempo={otherItem.tempoPreparo}
-                                        porcoes={otherItem.rendimento}
-                                        dificuldade={otherItem.dificuldade}
-                                        imagem={otherItem.imagem}
-                                        link={otherItem._id} />
-                                        {_index > 0 && _index % 2 == 1 && <div className="w-100"></div>}
+                                    return (<>
+                                        <ItemCard
+                                            titulo={otherItem.titulo}
+                                            tempo={otherItem.tempoPreparo}
+                                            porcoes={otherItem.rendimento}
+                                            dificuldade={otherItem.dificuldade}
+                                            imagem={otherItem.imagem}
+                                            link={otherItem._id} />
+                                        {_index > 0 && _index % 2 == 1 &&}
 
                                     </>)
                                 }
                                 )}
-                            </div>
+                            </div >
                         </div>
-                    </div>
-                )
-            }
+
+                    )
+                }
+
+                
+            </div>
+
 
 
         </>
