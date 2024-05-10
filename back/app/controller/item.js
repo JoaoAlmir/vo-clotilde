@@ -1,6 +1,6 @@
 const Item = require("../model/item");
 
-module.exports.obterItens = async function (req, res) {
+module.exports.getItens = async function (req, res) {
     try {
         const itens = await Item.find().exec();
         res.status(200).json(itens);
@@ -10,7 +10,7 @@ module.exports.obterItens = async function (req, res) {
     }
 }
 
-module.exports.obterItemCategoria = async function (req, res) {
+module.exports.getItemCategoria = async function (req, res) {
     try {
         const categoria = req.params.categoria;
         const itens = await Item.find({ categoria: categoria }).exec();
@@ -28,7 +28,7 @@ module.exports.obterItemCategoria = async function (req, res) {
     }
 }
 
-module.exports.obterItem = async function (req, res) {
+module.exports.getItem = async function (req, res) {
     try {
         const id = req.params.id;
         const item = await Item.findById(id).exec();
@@ -45,7 +45,7 @@ module.exports.obterItem = async function (req, res) {
     }
 }
 
-module.exports.inserirItem = async function (req, res) {
+module.exports.postItem = async function (req, res) {
     try {
         const date = Date.now();
         const dataAtual = new Date(date).toLocaleDateString();
@@ -71,7 +71,7 @@ module.exports.inserirItem = async function (req, res) {
     }
 }
 
-module.exports.atualizarItem = async function (req, res) {
+module.exports.putItem = async function (req, res) {
     try {
         const id = req.params.id;
 
@@ -101,7 +101,7 @@ module.exports.atualizarItem = async function (req, res) {
     }
 }
 
-module.exports.removerItem = async function (req, res) {
+module.exports.delItem = async function (req, res) {
     try {
         const id = req.params.id;
         const item = await Item.findByIdAndDelete(id).exec();
