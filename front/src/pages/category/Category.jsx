@@ -8,6 +8,7 @@ function Category() {
     const [itens, setItens] = useState([]);
 
     let categoria = useParams().categoria;
+    const url = window.location.pathname.split('/').pop();
 
     useEffect(() => {
         fetchCategory(categoria).then((res) => {
@@ -17,26 +18,29 @@ function Category() {
         ).catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [url])
 
     return (
         <>
             <Header />
 
-            {
-                itens?.map((i) => (
-                    <span key={i._id}>
-                        {i != undefined &&
-                            <div className="d-flex mb-5">
-                                <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} />
+            <div className="m-5">
+
+                {
+                    itens?.map((i) => (
+                        <span key={i._id}>
+                            {i != undefined &&
+                                <div className="d-flex mb-5">
+                                    <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
 
 
-                            </div>
-                        }
+                                </div>
+                            }
 
-                    </span>
-                ))
-            }
+                        </span>
+                    ))
+                }
+            </div>
 
         </>
     )

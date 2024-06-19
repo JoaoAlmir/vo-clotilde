@@ -6,7 +6,7 @@ function Header() {
         <>
             <header className="d-flex justify-content-evenly position-sticky d-block shadow">
                 <NavLink end to="/">
-                    <img width="80px" height="80px" src="../src/assets/headerIcon.png" alt="icon" />
+                    <img id="header-icon" width="80px" height="80px" src="../src/assets/headerIcon.png" alt="icon" />
                 </NavLink>
                 <NavLink end to="/categorias/be">
                     <h5 className="p-4 text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">BEBIDAS</h5>
