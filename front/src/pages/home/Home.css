@@ -1,7 +1,12 @@
 .form-control:focus {
     border-color: #e60000;
-    box-shadow: 0 0 0 0.3rem rgba(185, 28, 28, 0.25);
+    box-shadow: 0 0 0 0.1rem rgba(185, 28, 28, 0.25);
 }
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #c71711;
+}
+
 
 .btn{
     color: #e7e7e7;

@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&family=Playwrite+PT:wght@100..400&display=swap');
+
 .header-buttom:hover {
     background-color: #f3c4c4;
     color: #000;
+    transition: background 1s;
 
 }
 
 #header-icon:hover{
     border-radius: 50%;
     border-color: red;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     padding: 5px;
+    transition: border 1s;
+    transition: padding 1s;
+
 }
 
 header{
@@ -20,4 +26,7 @@ header{
     background-color: rgb(255, 255, 255);
     z-index: 6;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Playwrite PT", cursive;
+
+    
   }
