@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { fetchItens } from "../../api/item";
 import "./Home.css"
 import Header from "../../components/header/Header";
 import { SearchBar } from "../../components/searchBar/SearchBar";
 import { ItemCard } from "../../components/item/ItemCard";
+import { fetchItens } from "../../api/item";
 
 
 
@@ -49,11 +49,11 @@ function Home() {
                         <div className="d-flex mb-5">
                             <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
 
-                            <div class="grid-container">
+                            <div className="grid-container">
                                 {item.others.map((otherItem, _index) => {
 
                                     return (
-                                        <div class="grid-item">
+                                        <div className="grid-item">
                                             <ItemCard className="col" detalhado={false}
                                                 titulo={otherItem.titulo}
                                                 tempo={otherItem.tempoPreparo}

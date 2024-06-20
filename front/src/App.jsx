@@ -6,7 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Home from './pages/home/Home'
 import Details from './pages/details/Details'
 import Category from './pages/category/Category'
-import Add from './pages/add/Add'
+import AddItem from './pages/add/AddItem'
 import Login from './pages/login/Login';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           <Route path="/detalhes/:id" element={<Details />} />
           <Route path="/categorias/:categoria" element={<Category />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/admin/add" element={<Add />} />
+          <Route path="/admin/add" element={<AddItem />} />
 
 
 

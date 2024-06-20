@@ -13,6 +13,15 @@ const url_base = "http://localhost:9999"
 //     })
 // }
 
+export function PostItem(titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem) {
+    return (axios({
+        method: 'POST',
+        url: url_base+"/itens",
+        data: { titulo: titulo, tempoPreparo: tempoPreparo,rendimento:rendimento, dificuldade:dificuldade, introducao:introducao, ingredientes:ingredientes, preparo:preparo, categoria:categoria, imagem:imagem }
+    })
+    )
+}
+
 export function fetchItens(){
     return axios({
         method: "GET",
