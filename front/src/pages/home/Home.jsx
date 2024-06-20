@@ -26,11 +26,11 @@ function Home() {
     }
     useEffect(() => {
         fetchItens().then((res) => {
-            console.log('data', res.data)
+            // console.log('data', res.data)
             const dataAdjust = adjustList(res.data)
-            console.log(dataAdjust)
+            // console.log(dataAdjust)
             setItens(dataAdjust)
-            console.log('itens', itens)
+            // console.log('itens', itens)
         }
         ).catch((err) => {
             console.log(err)

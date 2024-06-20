@@ -2,17 +2,17 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header"
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
+import { PostLogin } from "../../api/user";
 import { AuthContext } from "../../App";
 
 
 function Login() {
     const { register, handleSubmit } = useForm();
-
     const nav = useNavigate();
     const auth = useContext(AuthContext);
 
     const onSubmit = (data) => {
-        enviarLogin(data.email, data.senha).then((response)=>{
+        PostLogin(data.email, data.senha).then((response)=>{
         auth.setToken(response.data.token)
         auth.setNome(response.data.nome)
         auth.setFuncao(response.data.funcao)
@@ -41,7 +41,7 @@ function Login() {
 
                         <div className="mb-3">
                             <label className="form-label">Senha</label>
-                            <input type="email" className="form-control" {...register("senha")} />
+                            <input type="password" className="form-control" {...register("senha")} />
                         </div>
 
                         <button type="submit" className="btn btn-primary">Submit</button>
