@@ -49,31 +49,31 @@ function Home() {
                         <div className="d-flex mb-5">
                             <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
 
-                                
+                            <div class="grid-container">
                                 {item.others.map((otherItem, _index) => {
 
-                                    return (<div className="row">
-                                        <ItemCard className="col" detalhado={false}
-                                            titulo={otherItem.titulo}
-                                            tempo={otherItem.tempoPreparo}
-                                            porcoes={otherItem.rendimento}
-                                            dificuldade={otherItem.dificuldade}
-                                            imagem={otherItem.imagem}
-                                            link={otherItem._id} />
-                                        {_index > 0 && _index % 2 == 1 && <div className="row">AAA</div>}
+                                    return (
+                                        <div class="grid-item">
+                                            <ItemCard className="col" detalhado={false}
+                                                titulo={otherItem.titulo}
+                                                tempo={otherItem.tempoPreparo}
+                                                porcoes={otherItem.rendimento}
+                                                dificuldade={otherItem.dificuldade}
+                                                imagem={otherItem.imagem}
+                                                link={otherItem._id} />
+                                        </div>
+                                    )
 
-                                    </div>)
                                 }
                                 )}
+                            </div>
                         </div>
+
 
                     )
                 }
 
-            
-                
 
-                
             </div>
 
 

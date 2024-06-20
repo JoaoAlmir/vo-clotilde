@@ -7,6 +7,7 @@ import Home from './pages/home/Home'
 import Details from './pages/details/Details'
 import Category from './pages/category/Category'
 import Add from './pages/add/Add'
+import Login from './pages/login/Login';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/detalhes/:id" element={<Details />} />
           <Route path="/categorias/:categoria" element={<Category />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/admin/add" element={<Add />} />
 
 

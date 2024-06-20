@@ -18,3 +18,12 @@
     background-color: #3f0505;
     border-color: #c71711; 
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+  }

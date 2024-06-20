@@ -13,8 +13,11 @@
     border-width: 1px;
     border-style: solid;
     padding: 5px;
+    background-color: #f3c4c4;
     transition: border 1s;
     transition: padding 1s;
+    transition: background 1s;
+    
 
 }
 

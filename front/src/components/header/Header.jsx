@@ -5,6 +5,9 @@ function Header() {
     return (
         <>
             <header className="d-flex justify-content-evenly position-sticky d-block shadow">
+                 <NavLink end to="/login">
+                    <h5 className="p-4 text-danger header-buttom rounded-5 border-danger">Login</h5>
+                </NavLink>
                 <NavLink end to="/">
                     <img id="header-icon" width="80px" height="80px" src="../src/assets/headerIcon.png" alt="icon" />
                 </NavLink>
@@ -26,6 +29,10 @@ function Header() {
                 <NavLink end to="/categorias/pe">
                     <h5 className="p-4 text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Peixes &amp; Frutos do Mar  </h5>
                 </NavLink>
+                <NavLink end to="/admin/add">
+                    <h5 className="p-4 text-danger header-buttom rounded-5  border-danger border ">+ </h5>
+                </NavLink>
+                
             </header>
         </>
     );
