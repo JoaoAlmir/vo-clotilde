@@ -43,7 +43,7 @@ function Header() {
                 <div className="p-4" name="conta">
                     <h5>Olá {auth.nome}</h5>
                 </div>
-                <div className="p-4 text-danger header-buttom rounded-5 border-danger" name="logout">
+                <div className="p-4 text-danger header-buttom rounded-5 border-danger" id="logout" name="logout">
                     <h5 onClick={() => {
                         auth.setToken(null)
                         auth.setNome(null)

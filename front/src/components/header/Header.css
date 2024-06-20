@@ -43,3 +43,7 @@ header{
     user-select: none;
     
   }
+
+#logout{
+    cursor: pointer;
+}
