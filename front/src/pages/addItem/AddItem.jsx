@@ -10,11 +10,12 @@ function AddItem() {
 
     const onSubmit = (data) => {
         data.rendimento = data.rendimento+" porções";
-        PostItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem).then((response) => {
-            alert('Receita adicionada com sucesso')
-            nav('/')
+        console.log(data)
+        // PostItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem).then((response) => {
+        //     alert('Receita adicionada com sucesso')
+        //     nav('/')
 
-        }).catch((error) => console.log(error))
+        // }).catch((error) => console.log(error))
     };
 
     return (

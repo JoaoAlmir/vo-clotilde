@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header"
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../App";
 
 
 function Login() {
     const { register, handleSubmit } = useForm();
 
-    // const nav = useNavigate();
-    // const auth = useContext(AuthContext);
+    const nav = useNavigate();
+    const auth = useContext(AuthContext);
 
     const onSubmit = (data) => {
         enviarLogin(data.email, data.senha).then((response)=>{

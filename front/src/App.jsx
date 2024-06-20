@@ -20,17 +20,18 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AuthContext.Provider value={{token:token, setToken:setToken, nome:nome, setNome:setNome, funcao:funcao, setFuncao:setFuncao}}></AuthContext.Provider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detalhes/:id" element={<Details />} />
-          <Route path="/categorias/:categoria" element={<Category />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin/add" element={<AddItem />} />
+        <AuthContext.Provider value={{ token: token, setToken: setToken, nome: nome, setNome: setNome, funcao: funcao, setFuncao: setFuncao }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detalhes/:id" element={<Details />} />
+            <Route path="/categorias/:categoria" element={<Category />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin/add" element={<AddItem />} />
 
 
 
-        </Routes>
+          </Routes>
+        </AuthContext.Provider>
 
       </BrowserRouter>
 

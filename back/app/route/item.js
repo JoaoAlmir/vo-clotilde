@@ -1,4 +1,5 @@
 const controller = require("../controller/item");
+const auth = require("../controller/auth");
 
 module.exports = function (app) {
     //obter todos os itens
@@ -9,6 +10,9 @@ module.exports = function (app) {
 
     //obter a item pela categoria
     app.get("/itens/categoria/:categoria", controller.getItemCategoria);
+
+    // checar se o token é valido
+    app.use("/itens", auth.check_token);
 
     //criar novo item
     app.post("/itens", controller.postItem);

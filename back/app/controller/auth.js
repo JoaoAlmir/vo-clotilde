@@ -8,7 +8,7 @@ module.exports.login = function (req, res) {
     promise.then(
         function (user) {
             if (bcrypt.compareSync(info_login.senha, user.senha)) {
-                let token = jwt.sign({id:user._id,funcao:user.funcao},"senhasecreta")
+                let token = jwt.sign({id:user._id,funcao:user.funcao, nome:user.nome},"senhasecreta")
                 res.status(200).json({token:token, nome:user.nome, funcao:user.funcao});
             }
             else {
