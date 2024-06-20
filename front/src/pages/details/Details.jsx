@@ -42,9 +42,6 @@ function Details() {
     }, [])
 
 
-
-
-
     return (
         <>
             <Header />
