@@ -22,7 +22,7 @@ function Details() {
 
     const onSubmit = (data) => {
 
-        postComment( data.texto, id, auth.nome ,auth.token ).then((res) => {
+        postComment(data.texto, id, auth.nome, auth.token).then((res) => {
             setComments([...Comments, res.data])
         }
         ).catch((err) => {
@@ -114,13 +114,16 @@ function Details() {
             ))
             }
 
-            <form onSubmit={handleSubmit(onSubmit)} >
 
-                <textarea className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>
+            {(auth.token) &&
+                <form onSubmit={handleSubmit(onSubmit)} >
 
-                <button type="submit" className="btn btn-danger w-50 mx-auto d-block mb-2">Adicionar Comentário</button>
+                    <textarea className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>
 
-            </form>
+                    <button type="submit" className="btn btn-danger w-50 mx-auto d-block mb-2">Adicionar Comentário</button>
+
+                </form>
+            }
 
 
 
