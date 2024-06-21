@@ -33,7 +33,7 @@ module.exports.getComment = async function (req, res) {
 module.exports.getCommentByItem = async function (req, res) {
     try {
         const id = req.params.id;
-        const comment = await Comment.find({ idItem:id }).exec();
+        const comment = await Comment.find({ idItem: id }).exec();
 
         if (!comment) {
             res.status(404).json({ message: 'Comment não encontrado' });
@@ -48,13 +48,9 @@ module.exports.getCommentByItem = async function (req, res) {
 }
 
 module.exports.postComment = async function (req, res) {
-
-    let token = req.headers.token;
-    let nome = jwt.verify(token, "senhasecreta").nome;
-
     try {
         const cmt = {
-            user: nome,
+            user: req.body.user,
             texto: req.body.texto,
             idItem: req.body.idItem
         };
@@ -65,6 +61,7 @@ module.exports.postComment = async function (req, res) {
         console.error(error);
         res.status(400).json({ mensagem: "Falha na requisição" });
     }
+
 }
 
 

@@ -8,16 +8,7 @@
 }
 
 
-.btn{
-    color: #e7e7e7;
-    background-color: #d11f1f7e;
-}
 
-.btn:hover {
-    color: #fff;
-    background-color: #3f0505;
-    border-color: #c71711; 
-}
 
 .grid-container {
     display: grid;

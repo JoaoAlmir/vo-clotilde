@@ -30,7 +30,7 @@ function Login() {
 
             <div className="d-flex p-5 justify-content-center">
                 <div className="flex-column border-danger border rounded p-5">
-                    <h2 className="mb-4">Login</h2>
+                    <h2 className="mb-4 text-center mb-3">Login</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} >
 
@@ -44,13 +44,13 @@ function Login() {
                             <input type="password" className="form-control" {...register("senha")} />
                         </div>
 
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-danger">Submit</button>
 
                     </form>
                 </div>
 
             </div >
-
+            
 
         </>
     )

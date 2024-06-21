@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../../components/header/Header"
 import { SearchBar } from "../../components/searchBar/SearchBar"
 import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
 import Comment from "../../components/comment/Comment";
-import { fetchCommentByItemId } from "../../api/comment";
+import { fetchCommentByItemId, postComment } from "../../api/comment";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../App";
+
 
 function Details() {
 
@@ -13,6 +16,21 @@ function Details() {
     const [Comments, setComments] = useState([]);
 
     let id = useParams().id;
+
+    const { register, handleSubmit } = useForm();
+    const auth = useContext(AuthContext);
+
+    const onSubmit = (data) => {
+
+        postComment( data.texto, id, auth.nome ,auth.token ).then((res) => {
+            setComments([...Comments, res.data])
+        }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+
+    };
 
 
     useEffect(() => {
@@ -89,12 +107,29 @@ function Details() {
                 </ol>
             </div>
 
-            <h2 className="text-danger text-center">Comentários</h2>
+            <h2 className="text-danger text-center mb-3">Comentários</h2>
 
             {Comments?.map((c) => (
                 <Comment user={c.user} texto={c.texto} />
             ))
             }
+
+            <form onSubmit={handleSubmit(onSubmit)} >
+
+                <textarea className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>
+
+                <button type="submit" className="btn btn-danger w-50 mx-auto d-block mb-2">Adicionar Comentário</button>
+
+            </form>
+
+
+
+
+
+
+
+
+
         </>
     )
 }

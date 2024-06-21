@@ -2,20 +2,24 @@ import { useNavigate } from "react-router-dom";
 import { postItem } from "../../api/item";
 import Header from "../../components/header/Header"
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../App";
+import { useContext } from "react";
 
 
 function AddItem() {
     const { register, handleSubmit } = useForm();
     const nav = useNavigate();
+    const auth = useContext(AuthContext);
 
     const onSubmit = (data) => {
         data.rendimento = data.rendimento+" porções";
-        console.log(data)
-        // PostItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem).then((response) => {
-        //     alert('Receita adicionada com sucesso')
-        //     nav('/')
+        
+        
+        postItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem , auth.token ).then((response) => {
+            alert('Receita adicionada com sucesso')
+            nav('/')
 
-        // }).catch((error) => console.log(error))
+        }).catch((error) => console.log(error))
     };
 
     return (

@@ -12,7 +12,6 @@ function Category() {
 
     useEffect(() => {
         fetchCategory(categoria).then((res) => {
-            console.log(res.data)
             setItens(res.data)
         }
         ).catch((err) => {
