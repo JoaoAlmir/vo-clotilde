@@ -4,6 +4,7 @@ import { SearchBar } from "../../components/searchBar/SearchBar"
 import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
+import Comment from "../../components/comment/Comment";
 
 function Details() {
 
@@ -80,7 +81,10 @@ function Details() {
                     {item.preparo}
                 </ol>
             </div>
+            
+            <h2 className="text-danger text-center">Comentários</h2>
 
+            <Comment nome={"cleber"} comentario={"teste teste teste"}/>
 
         </>
     )
