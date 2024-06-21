@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { PostItem } from "../../api/item";
+import { postItem } from "../../api/item";
 import Header from "../../components/header/Header"
 import { useForm } from "react-hook-form";
 

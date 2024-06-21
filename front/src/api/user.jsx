@@ -2,7 +2,7 @@ import axios from "axios"
 
 const url_base = "http://localhost:9999"
 
-export function PostLogin(email, senha){ {
+export function postLogin(email, senha){ {
     return (axios({
         method: 'POST',
         url: url_base+"/login",

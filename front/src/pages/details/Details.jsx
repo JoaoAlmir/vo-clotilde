@@ -5,17 +5,18 @@ import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
 import Comment from "../../components/comment/Comment";
+import { fetchCommentByItemId } from "../../api/comment";
 
 function Details() {
 
     const [item, setItem] = useState([]);
+    const [Comments, setComments] = useState([]);
 
     let id = useParams().id;
 
 
     useEffect(() => {
         fetchItem(id).then((res) => {
-            console.log(res.data)
 
             res.data.ingredientes = res.data.ingredientes.split(',').map((ingrediente) => {
 
@@ -30,12 +31,18 @@ function Details() {
                 }
             }
             )
-
             setItem(res.data)
 
 
-            console.log(ingredientes)
+        }
+        ).catch((err) => {
+            console.log(err)
+        })
+    }, [])
 
+    useEffect(() => {
+        fetchCommentByItemId(id).then((com) => {
+            setComments(com.data)
         }
         ).catch((err) => {
             console.log(err)
@@ -81,11 +88,13 @@ function Details() {
                     {item.preparo}
                 </ol>
             </div>
-            
+
             <h2 className="text-danger text-center">Comentários</h2>
 
-            <Comment nome={"cleber"} comentario={"teste teste teste"}/>
-
+            {Comments?.map((c) => (
+                <Comment user={c.user} texto={c.texto} />
+            ))
+            }
         </>
     )
 }

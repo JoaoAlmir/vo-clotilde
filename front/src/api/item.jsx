@@ -2,18 +2,7 @@ import axios from "axios"
 
 const url_base = "http://localhost:9999"
 
-// export function login(matricula, senha){
-//     return axios({
-//         method:"POST",
-//         url:url_base+"/alunos/login",
-//         data:{
-//             matricula:matricula,
-//             senha:senha
-//         }
-//     })
-// }
-
-export function PostItem(titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem) {
+export function postItem(titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem) {
     return (axios({
         method: 'POST',
         url: url_base+"/itens",
