@@ -1,4 +1,6 @@
 const Comment = require("../model/comment");
+const jwt = require("jsonwebtoken");
+
 
 module.exports.getComments = async function (req, res) {
     try {
@@ -29,21 +31,15 @@ module.exports.getComment = async function (req, res) {
 }
 
 module.exports.postComment = async function (req, res) {
-    try {
-        const date = Date.now();
-        const dataAtual = new Date(date).toLocaleDateString();
 
+    let token = req.headers.token;
+    let nome = jwt.verify(token, "senhasecreta").nome;
+
+    try {
         const cmt = {
-            titulo: req.body.titulo,
-            tempoPreparo: req.body.tempoPreparo,
-            rendimento: req.body.rendimento,
-            dificuldade: req.body.dificuldade,
-            introducao: req.body.introducao,
-            ingredientes: req.body.ingredientes,
-            preparo: req.body.preparo,
-            categoria: req.body.categoria,
-            imagem: req.body.imagem,
-            dataCriacao: dataAtual
+            user: nome,
+            texto: req.body.texto,
+            idItem: req.body.idItem
         };
 
         const comment = await Comment.create(cmt);
