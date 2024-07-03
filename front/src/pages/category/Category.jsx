@@ -3,6 +3,7 @@ import { fetchCategory } from "../../api/item";
 import Header from "../../components/header/Header"
 import { useParams } from "react-router-dom";
 import { ItemCard } from "../../components/item/ItemCard";
+import "./Category.css"
 
 function Category() {
     const [itens, setItens] = useState([]);
@@ -23,22 +24,29 @@ function Category() {
         <>
             <Header />
 
-            <div className="m-5">
+            <div className="d-flex mb-5">
+            <div className="category-container">
 
                 {
                     itens?.map((i) => (
-                        <span key={i._id}>
+                        <div className="category-item" key={i._id}>
                             {i != undefined &&
-                                <div className="d-flex mb-5">
-                                    <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
+                                
+                                        <ItemCard titulo={i.titulo} tempo={i.tempoPreparo} porcoes={i.rendimento} dificuldade={i.dificuldade} imagem={i.imagem} link={i._id} />
+                                
+                            
 
 
-                                </div>
                             }
 
-                        </span>
+            
+
+
+                        </div>
+                        
                     ))
                 }
+                </div>
             </div>
 
         </>

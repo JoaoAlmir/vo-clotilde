@@ -1,18 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&family=Playwrite+PT:wght@100..400&display=swap');
 
 @keyframes header-icon {
-    0%   {background-color:white; transform: rotate(0);}
-    100% {background-color: #f3c4c4; transform: rotate(360deg);}
+    0%   {background-color:rgb(252, 236, 236); transform: rotate(0);}
+    100% {background-color: #fd9b9b; transform: rotate(360deg);}
   }
 
 #header-icon{
     animation-direction: alternate;
 }
 
+.header-buttom{
+    
+    padding: 1.2em;
+    transition: padding 1s ease-out;
+
+}
+
 .header-buttom:hover {
+    text-align: center;
     background-color: #f3c4c4;
     color: #000;
     transition: background 2s;
+    transition: padding 1s ease-out;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
     
 }
 

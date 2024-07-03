@@ -46,14 +46,14 @@ function Home() {
             <div className="w-75 mx-auto">
                 {
                     itens?.map((item, index) =>
-                        <div className="d-flex mb-5">
+                        <div key={item._id} className="d-flex mb-5">
                             <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />
 
                             <div className="grid-container">
                                 {item.others.map((otherItem, _index) => {
 
                                     return (
-                                        <div className="grid-item">
+                                        <div key={otherItem._id} className="grid-item">
                                             <ItemCard className="col" detalhado={false}
                                                 titulo={otherItem.titulo}
                                                 tempo={otherItem.tempoPreparo}
