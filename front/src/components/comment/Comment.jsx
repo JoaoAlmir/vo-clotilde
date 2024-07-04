@@ -3,13 +3,16 @@ import { AuthContext } from "../../App";
 import { delComment } from "../../api/comment";
 
 
-function Comment({ user, texto, idComment}) {
+function Comment({ user, texto, idComment, perm, comments, setComments}) {
     const auth = useContext(AuthContext);
-
 
     function deleteComment() {
         delComment(idComment, auth.token).then((res) => {
-            console.log(res)
+            let co = comments.filter((c) => {
+                return c._id !== idComment
+            })
+            setComments(co)
+
         }
         ).catch((err) => {
             console.log(err)
@@ -25,7 +28,7 @@ function Comment({ user, texto, idComment}) {
                     <div className="d-flex flex-column m-3">
                         <div className="d-flex justify-content-between">
                             <h3> <i className="bi bi-person-circle color: #ff0000"></i> {user}</h3>
-                            <button onClick={deleteComment}><i style={{ color: "red" }} className="bi bi-trash3-fill p-2"></i></button>
+                            { (perm) &&<button onClick={deleteComment}><i style={{ color: "red" }} className="bi bi-trash3-fill p-2"></i></button>}
                         </div>
 
                         <h4 className="p-3">{texto}</h4>

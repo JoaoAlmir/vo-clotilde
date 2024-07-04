@@ -4,7 +4,7 @@ import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
 import Comment from "../../components/comment/Comment";
-import { fetchCommentByItemId, postComment } from "../../api/comment";
+import { delComment, fetchCommentByItemId, postComment } from "../../api/comment";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../App";
 
@@ -12,7 +12,7 @@ import { AuthContext } from "../../App";
 function Details() {
 
     const [item, setItem] = useState([]);
-    const [Comments, setComments] = useState([]);
+    const [comments, setComments] = useState([]);
 
     let id = useParams().id;
 
@@ -22,7 +22,7 @@ function Details() {
     const onSubmit = (data) => {
         console.log(auth.idUser)
         postComment(data.texto, id, auth.nome, auth.idUser, auth.token).then((res) => {
-            setComments([...Comments, res.data])
+            setComments([...comments, res.data])
         }
         ).catch((err) => {
             console.log(err)
@@ -30,8 +30,6 @@ function Details() {
 
 
     };
-    
-
 
     useEffect(() => {
         fetchItem(id).then((res) => {
@@ -109,12 +107,17 @@ function Details() {
 
             <h2 className="text-danger text-center mb-3">Comentários</h2>
 
-            {Comments?.map((c) => (
-                <Comment user={c.user} texto={c.texto} idComment={c._id} />
+            {comments?.map((c) => (
+                (auth.idUser === c.idUser)|| (auth.funcao) === 1 ? (
+                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={true} comments={comments} setComments={setComments} deleteComment={setComments} />
+
+                ) : (
+                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={false} deleteComment={setComments} />
+                )
             ))
             }
 
-            {(Comments.length === 0) &&
+            {(comments.length === 0) &&
                 <h4 className="text-center mt-4 mb-4">Sem comentarios</h4>}
 
 
@@ -127,13 +130,6 @@ function Details() {
 
                 </form>
             }
-
-
-
-
-
-
-
 
 
         </>
