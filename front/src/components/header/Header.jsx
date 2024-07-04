@@ -37,13 +37,13 @@ function Header() {
     return (
         <>
             <header className="d-flex justify-content-evenly position-sticky d-block shadow">
-                <NavLink end to="/login" name="login">
-                    <h5 className="p-4 text-danger header-buttom rounded-5 border-danger">Login</h5>
+                <NavLink end to="/login" name="login" className="header-button">
+                    <h5 className="p-4 text-danger header-buttom rounded-5 border-danger ">Login</h5>
                 </NavLink>
                 <div className="p-4" name="conta">
                     <h5>Olá {auth.nome}</h5>
                 </div>
-                <div className="text-danger header-buttom rounded-5 border-danger" id="logout" name="logout">
+                <div className="p-4 text-danger header-buttom rounded-5 border-danger" id="logout" name="logout">
                     <h5 onClick={() => {
                         auth.setToken(null)
                         auth.setNome(null)
@@ -51,7 +51,7 @@ function Header() {
                     }}>Logout</h5>
                 </div>
                 <NavLink end to="/">
-                    <img id="header-icon" width="80px" height="80px" src="../src/assets/headerIcon.png" alt="icon" />
+                    <img id="header-icon" width="75px" height="75px" src="../src/assets/headerIcon.png" alt="icon" />
                 </NavLink>
                 <NavLink end to="/categorias/be">
                     <h5 className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Bebidas</h5>

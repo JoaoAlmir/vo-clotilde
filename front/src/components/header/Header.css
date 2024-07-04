@@ -6,7 +6,9 @@
   }
 
 #header-icon{
+    
     animation-direction: alternate;
+    transition: background 2s, padding 2s,  width 2s, height 4s;
 }
 
 .header-buttom{
