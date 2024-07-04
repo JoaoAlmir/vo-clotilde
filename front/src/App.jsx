@@ -1,3 +1,4 @@
+import { createContext, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +8,7 @@ import Details from './pages/details/Details'
 import Category from './pages/category/Category'
 import AddItem from './pages/addItem/AddItem'
 import Login from './pages/login/Login';
-import { createContext, useState } from 'react';
+import Signin from './pages/signin/Signin';
 
 export const AuthContext = createContext(null);
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/detalhes/:id" element={<Details />} />
             <Route path="/categorias/:categoria" element={<Category />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<Signin/>} />
             <Route path="/admin/add" element={<AddItem />} />
 
 

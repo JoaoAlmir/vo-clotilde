@@ -10,3 +10,12 @@ export function postLogin(email, senha){ {
     })
     )
 }}
+
+export function postUser(email, nome, senha){ {
+    return (axios({
+        method: 'POST',
+        url: url_base+"/users",
+        data: { email: email, nome:nome, senha: senha }
+    })
+    )
+}}

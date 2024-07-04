@@ -10,11 +10,11 @@ function Header() {
     const create = useRef(null);
 
     const auth = useContext(AuthContext);
-    
+
 
     useEffect(() => {
 
-        if (auth.token) {            
+        if (auth.token) {
             login.current.classList.add("d-none");
             conta.current.classList.remove("d-none");
             logout.current.classList.remove("d-none");
@@ -26,14 +26,14 @@ function Header() {
             logout.current.classList.add("d-none")
         }
 
-        if(auth.funcao == 1){
+        if (auth.funcao == 1) {
             create.current.classList.remove("d-none")
         }
-        else{
+        else {
             create.current.classList.add("d-none")
         }
     }, [auth.token, auth.funcao])
-    
+
 
     return (
         <>

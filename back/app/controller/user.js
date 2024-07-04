@@ -35,7 +35,7 @@ module.exports.postUser = function (req, res) {
     user = {
         nome: user.nome,
         email: user.email,
-        funcao: user.funcao,
+        funcao: 2,
         senha: bcrypt.hashSync(user.senha, 10),
     }
     let promisse = User.create(user);
