@@ -20,8 +20,7 @@ function Details() {
     const auth = useContext(AuthContext);
 
     const onSubmit = (data) => {
-        console.log(auth.idUser)
-        postComment(data.texto, id, auth.nome, auth.idUser, auth.token).then((res) => {
+        postComment(data.texto, id, auth.token).then((res) => {
             setComments([...comments, res.data])
         }
         ).catch((err) => {
@@ -107,7 +106,7 @@ function Details() {
             <h2 className="text-danger text-center mb-3">Comentários</h2>
 
             {comments?.map((c) => (
-                (auth.idUser === c.idUser) || (auth.funcao) === 1 ? (
+                (auth.token.idUser === c.idUser) || (auth.token.funcao) === 1 ? (
                     <Comment user={c.user} texto={c.texto} idComment={c._id} perm={true} comments={comments} setComments={setComments} deleteComment={setComments} />
 
                 ) : (
@@ -120,7 +119,7 @@ function Details() {
                 <h4 className="text-center mt-4 mb-4">Sem comentarios</h4>}
 
 
-            {(auth.token) &&
+            {(auth.token.token) &&
                 <form onSubmit={handleSubmit(onSubmit)} >
 
                     <textarea className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>

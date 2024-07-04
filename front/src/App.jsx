@@ -14,14 +14,14 @@ export const AuthContext = createContext(null);
 
 function App() {
 
-  const [token, setToken] = useState()
-  const [nome, setNome] = useState()
-  const [funcao, setFuncao] = useState()
-  const [idUser, setIdUser] = useState()
+  const [token, setToken] = useState({token: localStorage.getItem('token'), nome: localStorage.getItem('nome'), funcao: localStorage.getItem('funcao'), idUser: localStorage.getItem('idUser')})
+  // const [nome, setNome] = useState()
+  // const [funcao, setFuncao] = useState()
+  // const [idUser, setIdUser] = useState()
   return (
     <>
       <BrowserRouter>
-        <AuthContext.Provider value={{ token: token, setToken: setToken, nome: nome, setNome: setNome, funcao: funcao, setFuncao: setFuncao, idUser:idUser, setIdUser:setIdUser}}>
+        <AuthContext.Provider value={{ token: token, setToken: setToken}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detalhes/:id" element={<Details />} />

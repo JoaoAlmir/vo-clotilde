@@ -12,13 +12,13 @@ export function fetchCommentByItemId(id) {
     }
 }
 
-export function postComment(texto, idItem, user, idUser,token) {
+export function postComment(texto, idItem, token) {
     return (axios({
         method: 'POST',
         url: url_base + "/comments",
-        data: { texto: texto, idItem: idItem, user: user, idUser: idUser},
+        data: { texto: texto, idItem: idItem, user: token.nome, idUser: token.idUser},
         headers: {
-            token: token
+            token: token.token
         }
     })
     )
@@ -29,7 +29,7 @@ export function delComment(id, token) {
         method: 'DELETE',
         url: url_base + "/comments/" + id,
         headers: {
-            token: token
+            token: token.token
         }
     })
     )

@@ -14,7 +14,7 @@ function Header() {
 
     useEffect(() => {
 
-        if (auth.token) {
+        if (auth.token.token) {
             login.current.classList.add("d-none");
             conta.current.classList.remove("d-none");
             logout.current.classList.remove("d-none");
@@ -26,13 +26,13 @@ function Header() {
             logout.current.classList.add("d-none")
         }
 
-        if (auth.funcao == 1) {
+        if (auth.token.funcao == 1) {
             create.current.classList.remove("d-none")
         }
         else {
             create.current.classList.add("d-none")
         }
-    }, [auth.token, auth.funcao])
+    }, [auth.token.token, auth.token.funcao])
 
 
     return (
@@ -42,14 +42,11 @@ function Header() {
                     <h5 className="p-4 text-danger header-buttom rounded-5 border-danger ">Login</h5>
                 </NavLink>
                 <div className="p-4" ref={conta}>
-                    <h5>Olá {auth.nome}</h5>
+                    <h5>Olá {auth.token.nome}</h5>
                 </div>
                 <div className="p-4 text-danger header-buttom rounded-5 border-danger" ref={logout}>
                     <h5 onClick={() => {
-                        auth.setToken(null)
-                        auth.setNome(null)
-                        auth.setFuncao(null)
-                        auth.setIdUser(null)
+                        auth.setToken({ token: null, nome: null, funcao: null, idUser: null })
                     }}>Logout</h5>
                 </div>
                 <NavLink end to="/">

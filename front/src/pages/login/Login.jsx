@@ -13,10 +13,7 @@ function Login() {
 
     const onSubmit = (data) => {
         postLogin(data.email, data.senha).then((response)=>{
-        auth.setToken(response.data.token)
-        auth.setNome(response.data.nome)
-        auth.setFuncao(response.data.funcao)
-        auth.setIdUser(response.data.idUser)
+        auth.setToken({token:response.data.token, nome:response.data.nome, funcao:response.data.funcao, idUser:response.data.idUser})
         nav("/")
 
         }).catch((error)=>console.log(error))

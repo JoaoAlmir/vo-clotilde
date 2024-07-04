@@ -14,10 +14,7 @@ function Signin() {
     const onSubmit = (data) => {
         postUser(data.email, data.name, data.senha).then((response) => {
             postLogin(data.email, data.senha).then((response) => {
-                auth.setToken(response.data.token)
-                auth.setNome(response.data.nome)
-                auth.setFuncao(response.data.funcao)
-
+                auth.setToken({ token: response.data.token, nome: response.data.nome, funcao: response.data.funcao, idUser: response.data.idUser })
 
             }).catch((error) => console.log(error))
         }).catch((error) => console.log(error))

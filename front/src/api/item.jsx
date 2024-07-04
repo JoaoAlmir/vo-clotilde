@@ -8,7 +8,7 @@ export function postItem(titulo, tempoPreparo, rendimento, dificuldade, introduc
         url: url_base+"/itens",
         data: { titulo: titulo, tempoPreparo: tempoPreparo,rendimento:rendimento, dificuldade:dificuldade, introducao:introducao, ingredientes:ingredientes, preparo:preparo, categoria:categoria, imagem:imagem },
         headers:{
-            token: token
+            token: token.token
         }
     })
     )
@@ -26,9 +26,6 @@ export function fetchItem(id){
     return axios({
         method: "GET",
         url: url_base+"/itens/"+ id,
-        // headers:{
-        //     token: token
-        // }
     })
 }
 
@@ -36,8 +33,5 @@ export function fetchCategory(category){
     return axios({
         method: "GET",
         url: url_base+"/itens/categoria/"+category,
-        // headers:{
-        //     token: token
-        // }
     })
 }
