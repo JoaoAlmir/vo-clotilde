@@ -13,6 +13,7 @@ function AddItem() {
 
     const onSubmit = (data) => {
         data.rendimento = data.rendimento+" porções";
+        data.tempoPreparo = data.tempoPreparo+" minutos";
         
         
         postItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem , auth.token ).then((response) => {
@@ -28,7 +29,7 @@ function AddItem() {
             <Header />
 
             <div className="d-flex p-5 justify-content-center">
-                <div className="flex-column border-danger border rounded p-5">
+                <div className="flex-column border-danger border rounded p-5 w-50">
                     <h2 className="mb-4">Adicionar Receita</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} >
@@ -38,23 +39,13 @@ function AddItem() {
                             <input type="text" className="form-control" {...register("titulo")} />
                         </div>
 
-                        <label className="form-label">Tempo de preparo</label>
-
-                        <div className="input-group mb-3">
-                            <select className="custom-select form-control" {...register("tempoPreparo")}>
-                                <option value="5 minutos">5 min</option>
-                                <option value="15 minutos">15 min</option>
-                                <option value="30 minutos">30 min</option>
-                                <option value="45 minutos">45 min</option>
-                                <option value="1 hora">1 hora</option>
-                                <option value="1 hora e 30 minutos">1 hora e meia</option>
-                                <option value="2 horas">2 horas</option>
-                                <option value="3 horas">3 horas</option>
-                            </select>
+                        <div className="mb-3">
+                            <label className="form-label">Tempo de preparo (minutos)</label>
+                            <input type="number" min="0" className="form-control" {...register("tempoPreparo")} />
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">Rendimento</label>
+                            <label className="form-label">Rendimento (porções)</label>
                             <input type="number" min="0" className="form-control" {...register("rendimento")} />
                         </div>
 
@@ -75,17 +66,17 @@ function AddItem() {
 
                         <div className="form-group mb-3 ">
                             <label >Introdução</label>
-                            <textarea className="form-control" rows="3" {...register("introducao")}></textarea>
+                            <textarea className="form-control" rows="5" {...register("introducao")}></textarea>
                         </div>
 
                         <div className="form-group mb-3" >
                             <label >Ingredientes</label>
-                            <textarea className="form-control" rows="3" {...register("ingredientes")}></textarea>
+                            <textarea className="form-control" rows="5" {...register("ingredientes")}></textarea>
                         </div>
 
                         <div className="form-group mb-3">
                             <label >Preparo</label>
-                            <textarea className="form-control" rows="3" {...register("preparo")}></textarea>
+                            <textarea className="form-control" rows="5" {...register("preparo")}></textarea>
                         </div>
 
                         <label className="form-label">Categoria</label>
@@ -108,7 +99,7 @@ function AddItem() {
                             <input type="text" className="form-control" {...register("imagem")}/>
                         </div>
 
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-danger d-block mx-auto mt-5">Submit</button>
 
                     </form>
                 </div>

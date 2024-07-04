@@ -33,11 +33,10 @@ function Details() {
 
     useEffect(() => {
         fetchItem(id).then((res) => {
-
-            res.data.ingredientes = res.data.ingredientes.split(',').map((ingrediente) => {
-
-                return <li>{ingrediente}</li>
-
+            res.data.ingredientes = res.data.ingredientes.split('.').map((ingrediente) => {
+                if (ingrediente !== "") {
+                    return <li>{ingrediente}</li>
+                }
             }
             )
 
@@ -108,7 +107,7 @@ function Details() {
             <h2 className="text-danger text-center mb-3">Comentários</h2>
 
             {comments?.map((c) => (
-                (auth.idUser === c.idUser)|| (auth.funcao) === 1 ? (
+                (auth.idUser === c.idUser) || (auth.funcao) === 1 ? (
                     <Comment user={c.user} texto={c.texto} idComment={c._id} perm={true} comments={comments} setComments={setComments} deleteComment={setComments} />
 
                 ) : (

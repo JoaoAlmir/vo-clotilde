@@ -22,13 +22,12 @@ function Home() {
                 })
             }
         }
-        console.log(res)
         return res;
     }
     useEffect(() => {
         fetchItens().then((res) => {
             // console.log('data', res.data)
-            const dataAdjust = adjustList(res.data)
+            const dataAdjust = adjustList(res.data.reverse())
             // console.log(dataAdjust)
             setItens(dataAdjust)
             // console.log('itens', itens)
