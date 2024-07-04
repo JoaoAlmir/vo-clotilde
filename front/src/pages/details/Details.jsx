@@ -114,6 +114,9 @@ function Details() {
             ))
             }
 
+            {(Comments.length === 0) &&
+                <h4 className="text-center mt-4 mb-4">Sem comentarios</h4>}
+
 
             {(auth.token) &&
                 <form onSubmit={handleSubmit(onSubmit)} >
