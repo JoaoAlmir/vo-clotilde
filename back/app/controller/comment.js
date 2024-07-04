@@ -52,7 +52,8 @@ module.exports.postComment = async function (req, res) {
         const cmt = {
             user: req.body.user,
             texto: req.body.texto,
-            idItem: req.body.idItem
+            idItem: req.body.idItem,
+            idUser: req.body.idUser
         };
 
         const comment = await Comment.create(cmt);
@@ -66,6 +67,18 @@ module.exports.postComment = async function (req, res) {
 
 
 module.exports.delComment = async function (req, res) {
+    const id = req.params.id;
+
+    let token = req.headers.token;
+    let user = jwt.verify(token, "senhasecreta");
+    let funcao = user.funcao;
+    let idUser = user.id;
+
+    const comment = await Comment.findById(id).exec();
+
+    console.log(">>>>>" + comment);
+
+    if (funcao == 1 || idUser == comment.idUser) {
     try {
         const id = req.params.id;
         const comment = await Comment.findByIdAndDelete(id).exec();
@@ -79,5 +92,11 @@ module.exports.delComment = async function (req, res) {
         console.error(error);
         res.status(500).json(error);
     }
+
+    }
+    else{
+        res.status(401).json({ mensagem: "Usuário não autorizado" });
+    }
+
 }
 

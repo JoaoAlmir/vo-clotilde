@@ -13,6 +13,10 @@ module.exports = function () {
         idItem:{
             type: String,
             required: true
+        },
+        idUser:{
+            type: String,
+            required: true
         }
         
 

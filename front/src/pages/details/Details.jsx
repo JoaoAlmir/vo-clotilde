@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import Header from "../../components/header/Header"
-import { SearchBar } from "../../components/searchBar/SearchBar"
 import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
@@ -21,8 +20,8 @@ function Details() {
     const auth = useContext(AuthContext);
 
     const onSubmit = (data) => {
-
-        postComment(data.texto, id, auth.nome, auth.token).then((res) => {
+        console.log(auth.idUser)
+        postComment(data.texto, id, auth.nome, auth.idUser, auth.token).then((res) => {
             setComments([...Comments, res.data])
         }
         ).catch((err) => {
@@ -31,6 +30,7 @@ function Details() {
 
 
     };
+    
 
 
     useEffect(() => {
@@ -110,7 +110,7 @@ function Details() {
             <h2 className="text-danger text-center mb-3">Comentários</h2>
 
             {Comments?.map((c) => (
-                <Comment user={c.user} texto={c.texto} />
+                <Comment user={c.user} texto={c.texto} idComment={c._id} />
             ))
             }
 

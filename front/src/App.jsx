@@ -17,11 +17,11 @@ function App() {
   const [token, setToken] = useState()
   const [nome, setNome] = useState()
   const [funcao, setFuncao] = useState()
-
+  const [idUser, setIdUser] = useState()
   return (
     <>
       <BrowserRouter>
-        <AuthContext.Provider value={{ token: token, setToken: setToken, nome: nome, setNome: setNome, funcao: funcao, setFuncao: setFuncao }}>
+        <AuthContext.Provider value={{ token: token, setToken: setToken, nome: nome, setNome: setNome, funcao: funcao, setFuncao: setFuncao, idUser:idUser, setIdUser:setIdUser}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detalhes/:id" element={<Details />} />

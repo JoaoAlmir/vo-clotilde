@@ -49,6 +49,7 @@ function Header() {
                         auth.setToken(null)
                         auth.setNome(null)
                         auth.setFuncao(null)
+                        auth.setIdUser(null)
                     }}>Logout</h5>
                 </div>
                 <NavLink end to="/">

@@ -16,6 +16,7 @@ function Login() {
         auth.setToken(response.data.token)
         auth.setNome(response.data.nome)
         auth.setFuncao(response.data.funcao)
+        auth.setIdUser(response.data.idUser)
         nav("/")
 
         }).catch((error)=>console.log(error))
