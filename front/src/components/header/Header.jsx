@@ -11,19 +11,29 @@ function Header() {
 
     const auth = useContext(AuthContext);
 
+    function showOff() {
+
+        login.current.classList.remove("d-none")
+        conta.current.classList.add("d-none")
+        logout.current.classList.add("d-none")
+
+    }
+
+    function showOn() {
+        login.current.classList.add("d-none")
+        conta.current.classList.remove("d-none")
+        logout.current.classList.remove("d-none")
+    }
 
     useEffect(() => {
 
-        if (auth.token.token) {
-            login.current.classList.add("d-none");
-            conta.current.classList.remove("d-none");
-            logout.current.classList.remove("d-none");
-            create.current.classList.remove("d-none");
+        //deslogado
+        if (auth.token.token == "null" || auth.token.token == null) {
+            showOff()
         }
+        //logado
         else {
-            login.current.classList.remove("d-none")
-            conta.current.classList.add("d-none")
-            logout.current.classList.add("d-none")
+            showOn()
         }
 
         if (auth.token.funcao == 1) {
@@ -32,7 +42,7 @@ function Header() {
         else {
             create.current.classList.add("d-none")
         }
-    }, [auth.token.token, auth.token.funcao])
+    }, [auth.token.token])
 
 
     return (
@@ -41,7 +51,7 @@ function Header() {
                 <NavLink end to="/login" ref={login} className="header-button">
                     <h5 className="p-4 text-danger header-buttom rounded-5 border-danger ">Login</h5>
                 </NavLink>
-                <div className="p-4" ref={conta}>
+                <div className="p-4 d-none" ref={conta}>
                     <h5>Olá {auth.token.nome}</h5>
                 </div>
                 <div className="p-4 text-danger header-buttom rounded-5 border-danger" ref={logout}>

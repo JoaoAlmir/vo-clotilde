@@ -76,7 +76,6 @@ module.exports.delComment = async function (req, res) {
 
     const comment = await Comment.findById(id).exec();
 
-    console.log(">>>>>" + comment);
 
     if (funcao == 1 || idUser == comment.idUser) {
     try {
