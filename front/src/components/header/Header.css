@@ -2,20 +2,20 @@
 
 @keyframes header-icon {
     0%   {background-color:rgb(252, 236, 236); transform: rotate(0);}
-    100% {background-color: #fd9b9b; transform: rotate(360deg);}
+    100% {background-color: rgb(250, 169, 169); transform: rotate(360deg);}
   }
 
 #header-icon{
     
-    animation-direction: alternate;
-    transition: background 2s, padding 2s,  width 2s, height 4s;
+    animation-direction: alternate-reverse;
+    transition: background 2s, padding 1s;
 }
 
 .header-buttom{
     
     padding: 1.2em;
-    transition: padding 1s ease-out;
-
+    transition: padding 1s ease-in-out;
+    
 }
 
 .header-buttom:hover {
@@ -23,7 +23,7 @@
     background-color: #f3c4c4;
     color: #000;
     transition: background 2s;
-    transition: padding 1s ease-out;
+    transition: padding 1s linear;
     padding-left: 2.5em;
     padding-right: 2.5em;
     
@@ -36,7 +36,7 @@
     border-style: solid;
     padding: 5px;
     animation-name: header-icon;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     transition: border 2s, padding 2s,  width 2s, height 4s;
 

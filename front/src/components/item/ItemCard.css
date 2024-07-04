@@ -5,4 +5,5 @@
 .item-card:hover{
     transform: scale(1.12);
     transition: all 1s;
+    background-color: #f3c4c4;
 }

@@ -13,7 +13,7 @@ function Home() {
     const adjustList = (myList) => {
         const res = []
 
-        for (let index = 0; index < myList.length; index++) {
+        for (let index = 0; index < 10; index++) {
             const element = myList[index];
             if (index % 5 == 0) {
                 res.push({
@@ -22,6 +22,7 @@ function Home() {
                 })
             }
         }
+        console.log(res)
         return res;
     }
     useEffect(() => {
