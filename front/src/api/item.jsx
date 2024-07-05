@@ -47,3 +47,13 @@ export function fetchCategory(category){
         url: url_base+"/itens/categoria/"+category,
     })
 }
+
+export function delItem(id, token){
+    return axios({
+        method: "DELETE",
+        url: url_base+"/itens/"+id,
+        headers:{
+            token: token.token
+        }
+    })
+}

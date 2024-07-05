@@ -1,15 +1,34 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header"
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../App";
+import { useEffect, useState } from "react";
 import { ItemList } from "../../components/itemList/ItemList";
-import { fetchItens } from "../../api/item";
+import { delItem, fetchItens } from "../../api/item";
+import { delAllCommentByItem } from "../../api/comment";
 
 
 function Admin() {
-    const nav = useNavigate();
-    const auth = useContext(AuthContext);
     const [itens, setItens] = useState([]);
+
+    // function handleDelete(id) {
+    //     console.log(id)
+
+    //     // delAllCommentByItem(id).then((res) => {
+    //     //     delItem(id).then((res) => {
+    //     //         let it = itens.filter((i) => {
+    //     //             return i._id !== id
+    //     //         }
+    //     //         )
+    //     //         setItens(it)
+    //     //     }
+    //     //     ).catch((err) => {
+    //     //         console.log(err)
+    //     //     })
+    //     // }
+    //     // ).catch((err) => {
+    //     //     console.log(err)
+    //     // })
+
+    // }
 
     useEffect(() => {
         fetchItens().then((res) => {
@@ -19,9 +38,6 @@ function Admin() {
             console.log(err)
         })
     }, [itens])
-
-    // nav("/")
-
 
     return (
         <>
@@ -36,7 +52,7 @@ function Admin() {
 
                     <div className="d-flex justify-content-center mb-2">
                         <NavLink to="/admin/add" className="btn btn-danger rounded rounded-circle">
-                            <i  className="bi bi-plus-circle h1 p-3"></i>
+                            <i className="bi bi-plus-circle h1 p-3"></i>
                         </NavLink>
                     </div>
 
@@ -44,7 +60,7 @@ function Admin() {
                         itens?.map((i) => (
                             <div className="" key={i._id}>
                                 {i != undefined &&
-                                    <ItemList titulo={i.titulo} data={i.dataCriacao} imagem={i.imagem} link={i._id} />
+                                    <ItemList titulo={i.titulo} data={i.dataCriacao} imagem={i.imagem} idItem={i._id}  />
 
                                 }
 

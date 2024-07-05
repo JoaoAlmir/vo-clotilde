@@ -148,9 +148,9 @@ function Details() {
             {(auth.token.token) &&
                 <form onSubmit={handleSubmit(onSubmit)} >
 
-                    <textarea className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>
+                    <textarea id="com"className="form-control w-50 mx-auto mb-2" rows="3" {...register("texto")}></textarea>
 
-                    <button type="submit" className="btn btn-danger w-50 mx-auto d-block mb-2">Adicionar Comentário</button>
+                    <button onClick={()=>{document.getElementById("com").value = ""}} type="submit" className="btn btn-danger w-50 mx-auto d-block mb-2">Adicionar Comentário</button>
 
                 </form>
             }

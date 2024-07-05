@@ -34,3 +34,14 @@ export function delComment(id, token) {
     })
     )
 }
+
+export function delAllCommentByItem(id, token) {
+    return (axios({
+        method: 'DELETE',
+        url: url_base + "/comments/item/" + id,
+        headers: {
+            token: token.token
+        }
+    })
+    )
+}
