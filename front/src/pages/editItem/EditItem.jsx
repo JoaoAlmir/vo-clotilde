@@ -1,24 +1,76 @@
-import { useNavigate } from "react-router-dom";
-import { postItem } from "../../api/item";
-import Header from "../../components/header/Header"
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchItem, postItem, putItem } from "../../api/item";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import Header from "../../components/header/Header";
 
 
-function AddItem() {
+function EditItem() {
+    const [itens, setItens] = useState([]);
+
     const { register, handleSubmit } = useForm();
     const nav = useNavigate();
     const auth = useContext(AuthContext);
 
+
+    let idItem = useParams().id;
+
+    function fillInputs() {
+        if(itens.length === 0) return;
+
+        document.querySelector('input[name="titulo"]').value = itens.titulo;
+        document.querySelector('input[name="tempoPreparo"]').value = itens.tempoPreparo;
+        document.querySelector('input[name="rendimento"]').value = itens.rendimento;
+        document.querySelector('textarea[name="introducao"]').value = itens.introducao;
+        document.querySelector('textarea[name="ingredientes"]').value = itens.ingredientes;
+        document.querySelector('textarea[name="preparo"]').value = itens.preparo;
+        document.querySelector('input[name="imagem"]').value = itens.imagem;
+        document.querySelector('select[name="categoria"]').value = itens.categoria;
+        document.querySelector('input[name="dificuldade"][value="' + itens.dificuldade + '"]').checked = true;
+
+    }
+
+
+    useEffect(() => {
+        fetchItem(idItem).then((res) => {
+            setItens(res.data)
+
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [idItem])
+
+
+    useEffect(() => {
+        fetchItem(idItem).then((res) => {
+            fillInputs()
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [itens])
+
+
+
     const onSubmit = (data) => {
-        data.rendimento = data.rendimento+" porções";
-        data.tempoPreparo = data.tempoPreparo+" minutos";
-        
-        
-        postItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem , auth.token ).then((response) => {
-            alert('Receita adicionada com sucesso')
-            nav('/')
+        data.rendimento = data.rendimento;
+        // let horas = Math.floor(data.tempoPreparo / 60);
+        // let minutos = data.tempoPreparo % 60;
+        // if (horas > 0 && minutos > 0) {
+        //     data.tempoPreparo = horas + " horas e " + minutos + " minutos";
+        // }
+        // else if (horas > 0) {
+        //     data.tempoPreparo = horas + " horas";
+        // }
+        // else {
+        //     data.tempoPreparo = minutos + " minutos";
+        // }
+        data.tempoPreparo = data.tempoPreparo;
+
+
+        putItem(data.titulo, data.tempoPreparo, data.rendimento, data.dificuldade, data.introducao, data.ingredientes, data.preparo, data.categoria, data.imagem, auth.token, idItem).then((response) => {
+            alert('Receita editada com sucesso')
+            nav('/admin')
 
         }).catch((error) => console.log(error))
     };
@@ -30,7 +82,7 @@ function AddItem() {
 
             <div className="d-flex p-5 justify-content-center">
                 <div className="flex-column border-danger border rounded p-5 w-50">
-                    <h2 className="mb-4 text-center">Adicionar Receita</h2>
+                    <h2 className="mb-4 text-center">Editar Receita</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} >
 
@@ -52,11 +104,11 @@ function AddItem() {
                         <label className="form-label ">Dificuldade</label><br />
 
                         <div className="form-check form-check-inline" >
-                            <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Fácil" {...register("dificuldade")}/>
+                            <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Fácil" {...register("dificuldade")} />
                             <label className="form-check-label" >Fácil</label>
                         </div>
                         <div className="form-check form-check-inline">
-                            <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Média" {...register("dificuldade")}/>
+                            <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Média" {...register("dificuldade")} />
                             <label className="form-check-label" >Média</label>
                         </div>
                         <div className="form-check form-check-inline mb-3">
@@ -96,7 +148,7 @@ function AddItem() {
 
                         <div className="mb-3">
                             <label className="form-label">Link imagem</label>
-                            <input type="text" className="form-control" {...register("imagem")}/>
+                            <input type="text" className="form-control" {...register("imagem")} />
                         </div>
 
                         <button type="submit" className="btn btn-danger d-block mx-auto mt-5">Submit</button>
@@ -111,4 +163,4 @@ function AddItem() {
     )
 }
 
-export default AddItem
+export default EditItem

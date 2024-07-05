@@ -14,6 +14,18 @@ export function postItem(titulo, tempoPreparo, rendimento, dificuldade, introduc
     )
 }
 
+export function putItem(titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem, token, id) {
+    return (axios({
+        method: 'PUT',
+        url: url_base+"/itens/"+id,
+        data: { titulo: titulo, tempoPreparo: tempoPreparo,rendimento:rendimento, dificuldade:dificuldade, introducao:introducao, ingredientes:ingredientes, preparo:preparo, categoria:categoria, imagem:imagem },
+        headers:{
+            token: token.token
+        }
+    })
+    )
+}
+
 export function fetchItens(){
     return axios({
         method: "GET",

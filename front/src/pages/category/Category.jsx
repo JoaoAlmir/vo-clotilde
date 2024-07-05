@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchCategory } from "../../api/item";
 import Header from "../../components/header/Header"
 import { useParams } from "react-router-dom";
-import { ItemCard } from "../../components/itemCard/ItemCard";
 import "./Category.css"
+import { ItemCard } from "../../components/itemCard/ItemCard";
 
 function Category() {
     const [itens, setItens] = useState([]);

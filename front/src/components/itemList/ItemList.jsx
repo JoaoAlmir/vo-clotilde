@@ -13,7 +13,7 @@ export function ItemList({ titulo, data, imagem, link }) {
                 <span>
                     <h4 className="p-4 text-end d-inline"> {data} </h4>
 
-                    <NavLink end to={"/edit/" + link} className="p-4 btn buttom-list border-black border-bottom">
+                    <NavLink end to={"/admin/edit/" + link} className="p-4 btn buttom-list border-black border-bottom">
                         <i style={{ color: "blue" }} className="bi bi-pencil-square h3"></i>
                     </NavLink>
                     <button className="btn p-4 buttom-list border-black ">

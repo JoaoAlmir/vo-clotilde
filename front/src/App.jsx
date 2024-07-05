@@ -10,6 +10,7 @@ import AddItem from './pages/addItem/AddItem'
 import Login from './pages/login/Login';
 import Signin from './pages/signin/Signin';
 import Admin from './pages/admin/Admin';
+import EditItem from './pages/editItem/EditItem';
 
 export const AuthContext = createContext(null);
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/signin" element={<Signin/>} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/add" element={<AddItem />} />
+            <Route path="/admin/edit/:id" element={<EditItem />} />
 
 
 
