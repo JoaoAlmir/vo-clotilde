@@ -1,5 +1,6 @@
 .item-card{
     transition: all 0.3s;
+    font-family: "Playwrite PT", cursive;
 }
 
 .item-card:hover{

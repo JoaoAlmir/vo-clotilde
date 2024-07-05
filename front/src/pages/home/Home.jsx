@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css"
 import Header from "../../components/header/Header";
 import { SearchBar } from "../../components/searchBar/SearchBar";
-import { ItemCard } from "../../components/item/ItemCard";
+import { ItemCard } from "../../components/itemCard/ItemCard";
 import { fetchItens } from "../../api/item";
 
 
