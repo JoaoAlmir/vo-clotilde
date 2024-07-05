@@ -80,7 +80,7 @@ function Header() {
                 <NavLink end to="/categorias/pe">
                     <h5 className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Peixes &amp; Frutos do Mar  </h5>
                 </NavLink>
-                <NavLink end to="/admin" ref={create} className={"d-none pt-2 header-buttom rounded-5 rounded-cirle"}>
+                <NavLink end to="/admin" ref={create} className={"d-none pt-2 px-3 admin-buttom rounded-5 rounded-cirle"}>
                     <i style={{color:"red"}} className="bi bi-pen rounded-5 h1"></i>
                 </NavLink>
 
