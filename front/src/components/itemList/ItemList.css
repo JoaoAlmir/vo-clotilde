@@ -1,8 +1,9 @@
-.buttom-list{
-    background-color: #ffffff;
-}
 
 .buttom-list:hover{
     transition: all 1s;
-    background-color: #eee9e9;
+    background-color: #fffafa;
+}
+
+.list-container{
+    background-color: #ffe9e993;
 }
