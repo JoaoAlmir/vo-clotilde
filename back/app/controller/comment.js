@@ -78,22 +78,55 @@ module.exports.delComment = async function (req, res) {
 
 
     if (funcao == 1 || idUser == comment.idUser) {
-    try {
-        const id = req.params.id;
-        const comment = await Comment.findByIdAndDelete(id).exec();
+        try {
+            const id = req.params.id;
+            const comment = await Comment.findByIdAndDelete(id).exec();
 
-        if (!comment) {
-            return res.status(404).json({ message: 'Comment não encontrado' });
+            if (!comment) {
+                return res.status(404).json({ message: 'Comment não encontrado' });
+            }
+
+            res.status(200).json(comment);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json(error);
         }
 
-        res.status(200).json(comment);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json(error);
+    }
+    else {
+        res.status(401).json({ mensagem: "Usuário não autorizado" });
     }
 
+}
+
+module.exports.delAllCommentByItem = async function (req, res) {
+    const id = req.params.id;
+
+    let token = req.headers.token;
+    let user = jwt.verify(token, "senhasecreta");
+    let funcao = user.funcao;
+    let idUser = user.id;
+
+    const comment = await Comment.findById(id).exec();
+
+    if (funcao == 1) {
+        try {
+            const id = req.params.id;
+
+            const comment = await Comment.deleteMany({ idItem: id }).exec();
+
+            if (!comment) {
+                return res.status(404).json({ message: 'Item não encontrado' });
+            }
+
+            res.status(200).json(comment);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json(error);
+        }
+
     }
-    else{
+    else {
         res.status(401).json({ mensagem: "Usuário não autorizado" });
     }
 

@@ -20,4 +20,7 @@ module.exports = function (app) {
     //deletar comment pelo id   
     app.delete("/comments/:id", controller.delComment);
 
+    //deletar todos os coments de um item
+    app.delete("/comments/item/:id", controller.delAllCommentByItem);
+
 }
