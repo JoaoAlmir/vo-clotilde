@@ -4,7 +4,7 @@ import "./Details.css"
 import { useParams } from "react-router-dom";
 import { fetchItem } from "../../api/item";
 import Comment from "../../components/comment/Comment";
-import { delComment, fetchCommentByItemId, postComment } from "../../api/comment";
+import { fetchCommentByItemId, postComment } from "../../api/comment";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../App";
 
@@ -133,10 +133,10 @@ function Details() {
 
             {comments?.map((c) => (
                 (auth.token.idUser === c.idUser) || (auth.token.funcao) === 1 ? (
-                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={true} comments={comments} setComments={setComments} deleteComment={setComments} />
+                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={true} comments={comments} setComments={setComments} />
 
                 ) : (
-                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={false} deleteComment={setComments} />
+                    <Comment user={c.user} texto={c.texto} idComment={c._id} perm={false} />
                 )
             ))
             }

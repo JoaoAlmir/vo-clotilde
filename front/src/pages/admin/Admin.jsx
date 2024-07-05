@@ -2,33 +2,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header"
 import { useEffect, useState } from "react";
 import { ItemList } from "../../components/itemList/ItemList";
-import { delItem, fetchItens } from "../../api/item";
-import { delAllCommentByItem } from "../../api/comment";
+import { fetchItens } from "../../api/item";
 
 
 function Admin() {
     const [itens, setItens] = useState([]);
-
-    // function handleDelete(id) {
-    //     console.log(id)
-
-    //     // delAllCommentByItem(id).then((res) => {
-    //     //     delItem(id).then((res) => {
-    //     //         let it = itens.filter((i) => {
-    //     //             return i._id !== id
-    //     //         }
-    //     //         )
-    //     //         setItens(it)
-    //     //     }
-    //     //     ).catch((err) => {
-    //     //         console.log(err)
-    //     //     })
-    //     // }
-    //     // ).catch((err) => {
-    //     //     console.log(err)
-    //     // })
-
-    // }
 
     useEffect(() => {
         fetchItens().then((res) => {
@@ -37,7 +15,7 @@ function Admin() {
         ).catch((err) => {
             console.log(err)
         })
-    }, [itens])
+    }, [])
 
     return (
         <>
@@ -60,7 +38,7 @@ function Admin() {
                         itens?.map((i) => (
                             <div className="" key={i._id}>
                                 {i != undefined &&
-                                    <ItemList titulo={i.titulo} data={i.dataCriacao} imagem={i.imagem} idItem={i._id}  />
+                                    <ItemList titulo={i.titulo} data={i.dataCriacao} imagem={i.imagem} idItem={i._id} itens={itens} setItens={setItens} />
 
                                 }
 
