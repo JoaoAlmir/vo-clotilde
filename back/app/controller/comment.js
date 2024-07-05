@@ -105,9 +105,6 @@ module.exports.delAllCommentByItem = async function (req, res) {
     let token = req.headers.token;
     let user = jwt.verify(token, "senhasecreta");
     let funcao = user.funcao;
-    let idUser = user.id;
-
-    const comment = await Comment.findById(id).exec();
 
     if (funcao == 1) {
         try {
