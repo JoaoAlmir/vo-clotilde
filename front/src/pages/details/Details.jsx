@@ -19,6 +19,8 @@ function Details() {
     const { register, handleSubmit } = useForm();
     const auth = useContext(AuthContext);
 
+
+
     const onSubmit = (data) => {
         postComment(data.texto, id, auth.token).then((res) => {
             setComments([...comments, res.data])
@@ -32,7 +34,31 @@ function Details() {
 
     useEffect(() => {
         fetchItem(id).then((res) => {
-            res.data.ingredientes = res.data.ingredientes.split('.').map((ingrediente) => {
+
+            let horas = Math.floor(res.data.tempoPreparo / 60);
+            let minutos = res.data.tempoPreparo % 60;
+            if (horas > 0 && minutos > 0) {
+                if (horas === 1) {
+                    res.data.tempoPreparo = horas + " hora e " + minutos + " minutos";
+                }
+                else {
+                    res.data.tempoPreparo = horas + " horas e " + minutos + " minutos";
+                }
+            }
+            else if (horas > 0) {
+                if (horas === 1) {
+                    res.data.tempoPreparo = horas + " hora";
+                } else {
+                    res.data.tempoPreparo = horas + " horas";
+                }
+            }
+            else {
+                res.data.tempoPreparo = minutos + " minutos";
+            }
+
+            res.data.rendimento = res.data.rendimento + " porções";
+
+            res.data.ingredientes = res.data.ingredientes.split('\n').map((ingrediente) => {
                 if (ingrediente !== "") {
                     return <li>{ingrediente}</li>
                 }

@@ -54,17 +54,6 @@ function EditItem() {
 
     const onSubmit = (data) => {
         data.rendimento = data.rendimento;
-        // let horas = Math.floor(data.tempoPreparo / 60);
-        // let minutos = data.tempoPreparo % 60;
-        // if (horas > 0 && minutos > 0) {
-        //     data.tempoPreparo = horas + " horas e " + minutos + " minutos";
-        // }
-        // else if (horas > 0) {
-        //     data.tempoPreparo = horas + " horas";
-        // }
-        // else {
-        //     data.tempoPreparo = minutos + " minutos";
-        // }
         data.tempoPreparo = data.tempoPreparo;
 
 
@@ -93,12 +82,12 @@ function EditItem() {
 
                         <div className="mb-3">
                             <label className="form-label">Tempo de preparo (minutos)</label>
-                            <input type="number" min="0" className="form-control" {...register("tempoPreparo")} />
+                            <input type="number" min="1" className="form-control" {...register("tempoPreparo")} />
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Rendimento (porções)</label>
-                            <input type="number" min="0" className="form-control" {...register("rendimento")} />
+                            <input type="number" min="1" className="form-control" {...register("rendimento")} />
                         </div>
 
                         <label className="form-label ">Dificuldade</label><br />

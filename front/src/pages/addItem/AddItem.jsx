@@ -41,12 +41,12 @@ function AddItem() {
 
                         <div className="mb-3">
                             <label className="form-label">Tempo de preparo (minutos)</label>
-                            <input type="number" min="0" className="form-control" {...register("tempoPreparo")} />
+                            <input type="number" min="1" className="form-control" {...register("tempoPreparo")} />
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Rendimento (porções)</label>
-                            <input type="number" min="0" className="form-control" {...register("rendimento")} />
+                            <input type="number" min="1" className="form-control" {...register("rendimento")} />
                         </div>
 
                         <label className="form-label ">Dificuldade</label><br />
