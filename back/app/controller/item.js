@@ -81,37 +81,33 @@ module.exports.postItem = async function (req, res) {
 }
 
 module.exports.putItem = async function (req, res) {
+    const token = req.headers.token;
+    const funcao = jwt.verify(token, "senhasecreta").funcao;
 
-    let token = req.headers.token;
-    let funcao = jwt.verify(token, "senhasecreta").funcao;
-    if (funcao == 1) {
+    if (funcao === 1) {
         try {
             const id = req.params.id;
-
             const itemExistente = await Item.findById(id).exec();
+
             if (!itemExistente) {
                 return res.status(404).json({ message: 'Item não encontrado' });
             }
 
-            const { titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem } = req.body;
-
-            if (titulo) itemExistente.titulo = titulo;
-            if (tempoPreparo) itemExistente.tempoPreparo = tempoPreparo;
-            if (rendimento) itemExistente.rendimento = rendimento;
-            if (dificuldade) itemExistente.dificuldade = dificuldade;
-            if (introducao) itemExistente.introducao = introducao;
-            if (ingredientes) itemExistente.ingredientes = ingredientes;
-            if (preparo) itemExistente.preparo = preparo;
-            if (categoria) itemExistente.categoria = categoria;
-            if (imagem) itemExistente.imagem = imagem;
+            const updateFields = ['titulo', 'tempoPreparo', 'rendimento', 'dificuldade', 'introducao', 'ingredientes', 'preparo', 'categoria', 'imagem'];
+            updateFields.forEach(field => {
+                if (req.body[field]) {
+                    itemExistente[field] = req.body[field];
+                }
+            });
 
             const itemAtualizado = await itemExistente.save();
-
             res.status(200).json(itemAtualizado);
         } catch (error) {
             console.error(error);
             res.status(500).json(error);
         }
+    } else {
+        res.status(403).json({ message: 'Acesso negado' });
     }
 }
 
