@@ -47,7 +47,7 @@ function Header() {
 
     return (
         <>
-            <header className="d-flex justify-content-evenly position-sticky d-block shadow">
+            <header className="d-flex justify-content-evenly position-sticky d-block">
                 <NavLink end to="/login" ref={login} className="header-button">
                     <h5 className="p-4 text-danger header-buttom rounded-5 border-danger ">Login</h5>
                 </NavLink>
