@@ -3,6 +3,29 @@ import "./ItemCard.css";
 
 export function ItemCard({ detalhado, titulo, tempo, porcoes, dificuldade, imagem, link }) {
 
+    let horas = Math.floor(tempo / 60);
+            let minutos = tempo % 60;
+            if (horas > 0 && minutos > 0) {
+                if (horas === 1) {
+                    tempo = horas + " hora e " + minutos + " minutos";
+                }
+                else {
+                    tempo = horas + " horas e " + minutos + " minutos";
+                }
+            }
+            else if (horas > 0) {
+                if (horas === 1) {
+                    tempo = horas + " hora";
+                } else {
+                    tempo = horas + " horas";
+                }
+            }
+            else {
+                tempo = minutos + " minutos";
+            }
+
+           porcoes = porcoes + " porções";
+
     return (
         (detalhado) ? (
             <NavLink end to={"/detalhes/" + link} className="border-bottom border-5 rounded-5 shadow-lg border-danger-subtle me-5 item-card label" style={{ width: "380px", height: "700px"}}>
