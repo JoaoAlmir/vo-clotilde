@@ -11,6 +11,9 @@ module.exports = function (app) {
     //obter a item pela categoria
     app.get("/itens/categoria/:categoria", controller.getItemCategoria);
 
+    // busca item pelo titulo
+    app.get("/itens/busca/:texto", controller.searchItem);
+
     // checar se o token é valido
     app.use("/itens", auth.check_token);
 

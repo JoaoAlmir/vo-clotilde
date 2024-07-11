@@ -11,6 +11,7 @@ import Login from './pages/login/Login';
 import Signin from './pages/signin/Signin';
 import Admin from './pages/admin/Admin';
 import EditItem from './pages/editItem/EditItem';
+import Search from './pages/search/Search';
 
 export const AuthContext = createContext(null);
 
@@ -40,6 +41,8 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/add" element={<AddItem />} />
             <Route path="/admin/edit/:id" element={<EditItem />} />
+            <Route path="/busca/:texto" element={<Search />} />
+            <Route path='*'> '404 Not Found' </Route>
 
 
 

@@ -57,3 +57,10 @@ export function delItem(id, token){
         }
     })
 }
+
+export function searchItem(text){
+    return axios({
+        method: "GET",
+        url: url_base+"/itens/busca/"+text,
+    })
+}

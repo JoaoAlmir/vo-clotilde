@@ -130,3 +130,20 @@ module.exports.delItem = async function (req, res) {
         }
     }
 }
+
+module.exports.searchItem = async function (req, res) {
+    try {
+        const texto = req.params.texto;
+        const item = await Item.find({ titulo: { $regex: texto, $options: 'i' } }).exec();
+
+        if (!item) {
+            res.status(404).json({ message: 'Item não encontrado' });
+            return;
+        }
+
+        res.status(200).json(item);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
+    }
+}
