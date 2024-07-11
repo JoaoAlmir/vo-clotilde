@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { postLogin, postUser } from "../../api/user";
 import { AuthContext } from "../../App";
+import "./Signin.css"
 
 
 function Signin() {
@@ -22,14 +23,13 @@ function Signin() {
     };
 
     return (
-        <>
+        <div className="signin-display">
 
             <Header />
 
 
-
-            <div className="d-flex p-5 justify-content-center">
-                <div className="flex-column border-danger border rounded p-5">
+            <div className="d-flex p-5 justify-content-center signin-card">
+                <div className="flex-column">
                     <h2 className="mb-4 text-center mb-3">Cadastro</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} >
@@ -58,7 +58,7 @@ function Signin() {
             </div >
 
 
-        </>
+        </div>
     )
 }
 

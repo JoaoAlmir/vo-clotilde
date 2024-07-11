@@ -1,0 +1,15 @@
+.signin-card{
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffec;
+}
+
+.signin-display{
+    background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422.jpg');
+    background-repeat: round;
+    height: 100vh;
+}

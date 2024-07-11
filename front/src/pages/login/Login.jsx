@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { postLogin } from "../../api/user";
 import { AuthContext } from "../../App";
+import "./Login.css"
 
 
 function Login() {
@@ -20,14 +21,13 @@ function Login() {
     };
 
     return (
-        <>
+        <div className="login-display">
 
             <Header />
 
 
-
-            <div className="d-flex p-5 justify-content-center">
-                <div className="flex-column border-danger border rounded p-5">
+            <div className="d-flex p-5 justify-content-center login-card">
+                <div className="flex-column">
                     <h2 className="mb-4 text-center mb-3">Login</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} >
@@ -53,7 +53,7 @@ function Login() {
             </div >
             
 
-        </>
+        </div>
     )
 }
 
