@@ -60,7 +60,7 @@ function Header() {
                     }}>Logout</h5>
                 </div>
                 <NavLink end to="/">
-                    <img id="header-icon" width="75px" height="75px" src="/src/assets/headerIcon.png" alt="icon" />
+                    <img id="header-icon" width="75px" height="75px" src="../src/assets/headerIcon.png" alt="icon" />
                 </NavLink>
                 <NavLink end to="/categorias/be">
                     <h5 className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Bebidas</h5>
