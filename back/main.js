@@ -4,7 +4,8 @@ const db = require('./config/database.js');
 
 //chama a função de express_app
 
-db('mongodb://localhost:27017/voclotilde').then(_ => {
+db('mongodb+srv://joaoalmircos:s7N6mseEFzIFbNqh@cluster0.dm00r.mongodb.net/voclotilde?retryWrites=true&w=majority&appName=Cluster0').then(_ => {
+
 
     let app = express_app();
 
