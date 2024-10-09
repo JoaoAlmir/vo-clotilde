@@ -6,9 +6,9 @@ const routes_comment = require("../app/route/comment");
 
 const cors = require('cors');
 
-module.exports = function(){
+module.exports = function(port){
     let app = express(); 
-    app.set("port", 9999);
+    app.set("port", port);
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: false })); 
