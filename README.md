@@ -1,8 +1,8 @@
-# Projeto Vó Receitas
+# Projeto Vó Clotilde
 
 ## Descrição
 
-O projeto Vó Receitas é uma aplicação Fullstack que permite aos usuários pesquisar e gerenciar receitas culinárias. A aplicação inclui uma interface de usuário interativa e uma API backend para manipulação de dados.
+O projeto Vó Clotilde é uma aplicação Fullstack que permite aos usuários pesquisar e gerenciar receitas culinárias. A aplicação inclui uma interface de usuário interativa e uma API backend para manipulação de dados.
 
 ## Funcionalidades
 
