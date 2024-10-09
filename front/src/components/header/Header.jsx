@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import "./Header.css"
 import { useContext, useEffect, useRef } from "react"
 import { AuthContext } from "../../App"
-
+import imgIcon from "../../assets/headerIcon.png"
 function Header() {
     const login = useRef(null);
     const conta = useRef(null);
@@ -60,7 +60,7 @@ function Header() {
                     }}>Logout</h5>
                 </div>
                 <NavLink end to="/">
-                    <img id="header-icon" width="75px" height="75px" src="./src/assets/headerIcon.png" alt="icon" />
+                    <img id="header-icon" width="75px" height="75px" src={imgIcon} alt="icon" />
                 </NavLink>
                 <NavLink end to="/categorias/be">
                     <h5 className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Bebidas</h5>
