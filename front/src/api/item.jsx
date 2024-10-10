@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const url_base = "http://localhost:9999"
+const url_base = "https://vo-receitas.onrender.com"
 
 export function postItem(titulo, tempoPreparo, rendimento, dificuldade, introducao, ingredientes, preparo, categoria, imagem, token) {
     return (axios({
