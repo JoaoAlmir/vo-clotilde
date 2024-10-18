@@ -49,12 +49,12 @@ function Header() {
         <>
             <header className="d-flex justify-content-evenly position-sticky d-block">
                 <NavLink end to="/login" ref={login} className="header-button">
-                    <h5 className="p-4 text-danger header-buttom rounded-5 border-danger ">Login</h5>
+                    <h5 className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0">Login</h5>
                 </NavLink>
                 <div className="p-4 d-none" ref={conta}>
                     <h5>Olá {auth.token.nome}</h5>
                 </div>
-                <div className="p-4 text-danger header-buttom rounded-5 border-danger" ref={logout}>
+                <div className="text-danger header-buttom rounded-5 rounded-bottom border-danger border border-bottom-0" ref={logout}>
                     <h5 onClick={() => {
                         auth.setToken({ token: null, nome: null, funcao: null, idUser: null })
                     }}>Logout</h5>

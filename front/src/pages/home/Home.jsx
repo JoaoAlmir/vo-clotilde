@@ -9,6 +9,7 @@ import { fetchItens } from "../../api/item";
 
 function Home() {
     const [itens, setItens] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const adjustList = (myList) => {
         const res = []
@@ -28,9 +29,11 @@ function Home() {
         fetchItens().then((res) => {
             const dataAdjust = adjustList(res.data.reverse())
             setItens(dataAdjust)
+            setLoading(false);
         }
         ).catch((err) => {
             console.log(err)
+            setLoading(false);
         })
     }, [])
 
@@ -40,8 +43,8 @@ function Home() {
             <Header />
             <SearchBar />
 
-            <div className="w-75 mx-auto">
-                {
+            <div className="itens-home">
+                { loading ? <div className="loading"></div> :
                     itens?.map((item, index) =>
                         <div key={item._id} className="d-flex mb-5">
                             <ItemCard detalhado titulo={item.main.titulo} tempo={item.main.tempoPreparo} porcoes={item.main.rendimento} dificuldade={item.main.dificuldade} imagem={item.main.imagem} link={item.main._id} />

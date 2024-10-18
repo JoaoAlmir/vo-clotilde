@@ -9,6 +9,8 @@
     
     animation-direction: alternate-reverse;
     transition: background 2s, padding 1s;
+    height: 4vw;
+    width: 4vw;
 }
 
 .header-buttom{
@@ -17,6 +19,7 @@
     background-color: white;
     transition: all 1s ;
     cursor: pointer;
+    font-size: 1.1vw
     
 }
 
@@ -50,7 +53,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 8.31vh;
     background-color: rgb(255, 255, 255);
     z-index: 6;
     box-shadow: 5px 5px 8px rgba(238, 8, 8, 0.1);
